@@ -1,14 +1,14 @@
 # MakeOpenSource.org
 
-## Security Reminders
-1. Do not under any circumstances make any pull requests or pushes with the `SECRET_KEY` explicitly declared. Instead, use a .env file to store the `SECRET_KEY` to prevent security breaches. 
+## :warning: Security Reminders
+1. Do not under any circumstances make any pull requests or pushes with the `SECRET_KEY` explicitly declared. Instead, [use a .env file](https://dev.to/jakewitcher/using-env-files-for-environment-variables-in-python-applications-55a1) to store the `SECRET_KEY` to prevent security breaches. 
 
-2. Set DEBUG = True in `mos/settings.py
+2. Set DEBUG = True in `mos/settings.py`
 
-3. (mac) Set a global .env file to prevent pushes with .DS_Store files
+3. (mac) Set a global .env file to prevent pushes with `.DS_Store files`
 
 
-## Directory Structure
+## :file_folder: Directory Structure
 There are two applications (directories) currently
 - main: static pages and github api integration in the future
 - idealab: a hub for people to submit ideas
