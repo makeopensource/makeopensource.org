@@ -23,12 +23,13 @@
     <!-- navigation -->
     <ul class="bar-nav my-3 mx-5">
 		<li><a href="{% url 'index' %}">MakeOpenSource</a></li>
-		<li><a href="">Projects</a></li>
+		<li><a href="{% url 'projects' %}">Projects</a></li>
 		<li><a href="">IdeaLab</a></li>
 		<li><a href="">About</a></li>
 		<li><a href="">Join</a></li>
 	</ul>
 
 	<div class="m-5">{% block content %}{% endblock %}</div>
+
   </body>
 </html>
