@@ -1,0 +1,22 @@
+/* navbar */
+
+.bar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.bar-nav li {
+	display: inline-block;
+	margin-right: 50px;
+}
+
+.bar-nav a {
+	font-weight: 600; 
+    padding: 0; 
+	text-decoration: none;
+	color: black !important;
+}
+
+.bar-nav a:hover {
+	color: grey !important;
+}

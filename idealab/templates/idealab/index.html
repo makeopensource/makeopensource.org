@@ -1,0 +1,16 @@
+{% extends "./base_template.html" %}
+
+{% block content %}
+<h1>IdeaLab</h1>
+{% for idea in idea_list %}
+	{% if idea.approved %}
+		<div class="card mt-3" style="width: 18rem; min-height: 18rem; float: left; margin-right: 20px;">
+			<div class="card-body">
+				<h5 class="card-title">{{ idea.title }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">{{ idea.author }}</h6>
+				<p class="card-text">{{ idea.description }}</p>
+			</div>
+		</div>
+	{% endif %}
+{% endfor %}
+{% endblock %}
