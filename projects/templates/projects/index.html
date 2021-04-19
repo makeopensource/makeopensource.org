@@ -2,4 +2,14 @@
 
 {% block content %}
 <h1>Projects</h1>
+{% for project in projects %}
+	<div class="card mt-3" style="width: 18rem; min-height: 18rem; float: left; margin-right: 20px;">
+		<div class="card-body">
+			<h5 class="card-title">{{ project.title }}</h5>
+			<h6 class="card-subtitle mb-2 text-muted">{{ project.contributors }}</h6>
+			<p class="card-text">{{ project.description }}</p>
+			<a href="{{ project.github }}" class="btn btn-primary">Github</a>
+		</div>
+	</div>
+{% endfor %}
 {% endblock %}
