@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 	'idealab.apps.IdealabConfig',
 	'projects.apps.ProjectsConfig',
+	'join.apps.JoinConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

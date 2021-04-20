@@ -4,7 +4,10 @@
 <h1>IdeaLab</h1>
 {% for idea in idea_list %}
 	{% if idea.approved %}
-		<div class="card mt-3" style="width: 18rem; min-height: 18rem; float: left; margin-right: 20px;">
+		<div class="card mt-3" style="width: 18rem; display: inline-block; margin-right: 20px;">
+			<div class="card-header">
+				{{ idea.release_date|date }}
+			</div>
 			<div class="card-body">
 				<h5 class="card-title">{{ idea.title }}</h5>
 				<h6 class="card-subtitle mb-2 text-muted">{{ idea.author }}</h6>

@@ -23,5 +23,6 @@ from django.conf.urls.static import static
 urlpatterns = [
 	path('idealab/', include('idealab.urls')),
 	path('projects/', include('projects.urls')),
+	path('join/', include('join.urls')),
     path('admin/', admin.site.urls),
 ]
