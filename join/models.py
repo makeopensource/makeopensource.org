@@ -1,11 +1,12 @@
 from django.db import models
 from datetime import date
 
+
 class Member(models.Model):
 	name = models.CharField(primary_key=True, max_length=100)
 	email = models.EmailField(max_length=100)
 	major = models.CharField(max_length=300)
-	join_date = models.DateField(default=date.today)
+	join_date = models.DateField(default=date.today, editable=False)
 
 	# from django Models documentation #
 
@@ -23,9 +24,9 @@ class Member(models.Model):
 	]
 	year_in_school = models.CharField(
 		max_length=2,
-		choices=YEAR_IN_SCHOOL_CHOICES,
-		blank=True,
-	)
+                choices=YEAR_IN_SCHOOL_CHOICES,
+                blank=True
+                )
 
 	###################################
 
