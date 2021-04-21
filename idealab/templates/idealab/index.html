@@ -1,10 +1,10 @@
-{% extends "./base_template.html" %}
+{% extends "base/base_template.html" %}
 
 {% block content %}
 <h1>IdeaLab</h1>
 {% for idea in idea_list %}
 	{% if idea.approved %}
-		<div class="card mt-3" style="width: 18rem; display: inline-block; margin-right: 20px;">
+		<div class="card my-4 me-4" style="width: 18rem; display: inline-block; margin-right: 20px;">
 			<div class="card-header">
 				{{ idea.release_date|date }}
 			</div>
