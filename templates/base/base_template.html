@@ -22,11 +22,11 @@
   <body>
     <!-- navigation -->
     <ul class="bar-nav my-3 mx-5">
-		<li><a href="">MakeOpenSource</a></li>
+		<li><a href="/">MakeOpenSource</a></li>
 		<li><a href="{% url 'projects:index' %}">Projects</a></li>
 		<li><a href="{% url 'idealab:index' %}">IdeaLab</a></li>
-		<li><a href="">About</a></li>
-		<li><a href="">Join</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a href="{% url 'join:index' %}">Join</a></li>
 	</ul>
 
 	<div class="m-5">{% block content %}{% endblock %}</div>

@@ -4,8 +4,11 @@ class Member(models.Model):
 	name = models.CharField(max_length=100)
 	email = models.EmailField(max_length=100)
 	major = models.CharField(max_length=300)
-	
-	# from django Models documentation
+	join_date = models.DateField(auto_now_add=True)
+
+
+	# from django Models documentation #
+
 	FRESHMAN = 'FR'
 	SOPHOMORE = 'SO'
 	JUNIOR = 'JR'
@@ -23,6 +26,9 @@ class Member(models.Model):
 		choices=YEAR_IN_SCHOOL_CHOICES,
 		blank=True,
 	)
+
+	###################################
+
 
 	def __str__(self):
 		return self.name

@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import RedirectView
+from django.views.generic import TemplateView
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+	path('', TemplateView.as_view(template_name='home/index.html')),
 	path('idealab/', include('idealab.urls')),
 	path('projects/', include('projects.urls')),
 	path('join/', include('join.urls')),
+	path('about/', TemplateView.as_view(template_name='about/index.html')),
     path('admin/', admin.site.urls),
 ]
