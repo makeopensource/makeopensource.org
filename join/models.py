@@ -1,11 +1,11 @@
 from django.db import models
+from datetime import date
 
 class Member(models.Model):
-	name = models.CharField(max_length=100)
+	name = models.CharField(primary_key=True, max_length=100)
 	email = models.EmailField(max_length=100)
 	major = models.CharField(max_length=300)
-	join_date = models.DateField(auto_now_add=True)
-
+	join_date = models.DateField(default=date.today)
 
 	# from django Models documentation #
 
