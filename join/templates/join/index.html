@@ -5,8 +5,17 @@
 
 <form action="/join/" method="post">
 	{% csrf_token %}
-		{{ form }}
-	<input type="submit" value="Submit">
+	{% for field in form %}
+		<div class="col-2 mb-3">
+			{{ field.label_tag }} {{ field }}
+			{% if field.help_text %}
+				<p class="help">{{ field.help_text|safe }}</p>
+			{% endif %}
+		</div>
+	{% endfor %}
+	<div class="col-12">
+		<input type="submit" value="Submit" class="btn btn-primary">
+	</div>
 </form>
 
 {% endblock %}

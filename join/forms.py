@@ -1,8 +1,20 @@
 from django import forms
 
 class JoinForm(forms.Form):
-    name = forms.CharField(label='Your name', max_length=100)
-    email = forms.EmailField(label='Your email', max_length=100)
+    name = forms.CharField(
+		label='Name',
+		max_length=100,
+		widget=forms.TextInput(
+			attrs={'type': 'text', 'class': 'form-control'}
+		)
+	)
+    email = forms.EmailField(
+		label='Email',
+		max_length=100,
+		widget=forms.EmailInput(
+			attrs={'type': 'email', 'class': 'form-control'}
+		)
+	)
    
     FRESHMAN = 'FR'
     SOPHOMORE = 'SO'
@@ -18,5 +30,19 @@ class JoinForm(forms.Form):
 		(GRADUATE, 'Graduate'),
     ]
 	
-    year_in_school = forms.MultipleChoiceField(label='Year in college', choices=YEAR_IN_SCHOOL_CHOICES)
-    major = forms.CharField(label='Your major', max_length=100)
+    year_in_school = forms.MultipleChoiceField(
+		label='Year in college',
+		choices=YEAR_IN_SCHOOL_CHOICES,
+		widget=forms.Select(
+			attrs={'class': 'form-select'}
+		),
+		required=True
+	)
+
+    major = forms.CharField(
+		label='Major',
+		max_length=100,
+		widget=forms.TextInput(
+			attrs={'type': 'text', 'class': 'form-control'}
+		)
+	)
