@@ -11,10 +11,9 @@ def index(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             major = form.cleaned_data['major']
-            year_in_school = form.cleaned_data['year_in_school'][0]
-            print(year_in_school)
-            b = Member(name=name, email=email, major=major, year_in_school=year_in_school)
-            print(b)
+            exp_grad_year = form.cleaned_data['exp_grad_year']
+            print(name, email, major, exp_grad_year)
+            b = Member(name=name, email=email, major=major, exp_grad_year=exp_grad_year)
             b.save()
             return HttpResponseRedirect('/join/')
     else:
