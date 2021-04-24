@@ -1,7 +1,7 @@
 # MakeOpenSource.org
 
 ## :warning: Security Reminders
-1. Do not under any circumstances make any pull requests or pushes with the `SECRET_KEY` explicitly declared. Instead, [use a .env file](https://dev.to/jakewitcher/using-env-files-for-environment-variables-in-python-applications-55a1) to store the `SECRET_KEY` to prevent security breaches. 
+1. In the root directory of the repo, run `python3 generate_key.py` to generate a random individual key.
 
 2. Set DEBUG = True in `mos/settings.py`
 
