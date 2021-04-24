@@ -12,8 +12,8 @@ class IdeaForm(forms.Form):
     desc = forms.CharField(
         label='Description',
         max_length=1000,
-        widget=forms.TextInput(
-            attrs={'type': 'text', 'class': 'form-control'}
+        widget=forms.Textarea(
+            attrs={'type': 'text', 'class': 'form-control', 'style': 'height: 200px; resize: none;'}
         )
     )
 
