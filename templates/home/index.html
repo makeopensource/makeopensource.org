@@ -2,4 +2,28 @@
 
 {% block content %}
 <h1>MakeOpenSource</h1>
+
+<div class="col" style="overflow-x: auto; margin: 10px;">
+	<div class="card text-dark bg-light mb-3" style="height:20rem; width:30rem; float:left; margin:10px; padding:10px;">
+		<div class="card-body">
+			<h5 class="card-title">Community</h5>
+			<p class="card-text">MakeOpenSource's goal is to create a community of programmers (of any skill level!) who can collaborate and contribute to one another's projects. All of our projects are shared on our website, and are open to anyone who wants to contribute. If you have an idea for a project, MakeOpenSource is also the perfect place to share it and find like minded people to work on it with you.</p>
+		</div>
+	</div>
+	<div class="card text-dark bg-light mb-3" style="height:20rem; width:30rem; float:left; margin:10px; padding:10px;">
+		<div class="card-body">
+			<h5 class="card-title">Learn</h5>
+			<p class="card-text">Just as you don't have to be a computer scientist to have an interest in programming, you don't have to be a computer science major to be a part of MakeOpenSource. If you want to strengthen your programming knowledge, MakeOpenSource's events are a great opportunity.</p>
+		</div>
+	</div>
+	<div class="card text-dark bg-light mb-3" style="height:20rem; width:30rem; float:left; margin:10px; padding:10px;">
+		<div class="card-body">
+			<h5 class="card-title">Join</h5>
+			<p class="card-text">Interested in becoming a member of MakeOpenSource? Please fill out our membership form to become a member, and join our official MakeOpenSource Discord server, where we will host and share information about events.</p>
+			<a class="btn btn-primary" href="{% url 'join:index' %}" role="button">Join</a>
+		</div>
+	</div>
+</div>
+
+
 {% endblock %}
