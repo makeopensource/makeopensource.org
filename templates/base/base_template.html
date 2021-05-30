@@ -11,17 +11,15 @@
 
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
 		rel="stylesheet"
 		ntegrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-		crossorigin="anonymous"
-	>
+		crossorigin="anonymous">
   </head>
 
   <body>
     <!-- navigation -->
-    <ul class="bar-nav my-3 mx-5">
+    <ul id="bar-nav" class="my-3 mx-5">
 		<li><a href="/">MakeOpenSource</a></li>
 		<li><a href="{% url 'projects:index' %}">Projects</a></li>
 		<li><a href="{% url 'idealab:index' %}">IdeaLab</a></li>

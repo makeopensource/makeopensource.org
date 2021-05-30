@@ -1,21 +1,24 @@
 {% extends "base/base_template.html" %}
 
 {% block content %}
-<h1>Join</h1>
-
-<form action="/join/" method="post">
-	{% csrf_token %}
-	{% for field in form %}
-		<div class="col-2 mb-3">
-			{{ field.label_tag }} {{ field }}
-			{% if field.help_text %}
-				<p class="help">{{ field.help_text|safe }}</p>
-			{% endif %}
+<div class="container" style="max-width: 600px;">
+	<h1>Join</h1>
+	<p></p>
+	
+	<form action="/join/" method="post">
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="mb-3 col-10">
+				{{ field.label_tag }} {{ field }}
+				{% if field.help_text %}
+					<p class="help">{{ field.help_text|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
+		<div class="col-12">
+			<input type="submit" value="Submit" class="btn btn-primary">
 		</div>
-	{% endfor %}
-	<div class="col-12">
-		<input type="submit" value="Submit" class="btn btn-primary">
-	</div>
-</form>
+	</form>
+</div>
 
 {% endblock %}

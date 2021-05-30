@@ -2,30 +2,35 @@
   
 {% block content %}
 <div class="container" style="max-width: 600px;">
-    <h1>About</h1>
-    <p>
-        MakeOpenSource is a collaborative open-source club 
-        led by University at Buffalo computer science students. 
-        Our club is dedicated to the development and deployment of 
-        open-source software. Our goal is to develop unique and 
-        intuitive ideas that will benefit the general public. All 
-        projects created under the club will be available to 
-        view, modify, and change given the restrictions of the 
-        individual project's license.
-    </p>
+    <div class="row mb-3">
+        <h1>About</h1>
+        <p>
+            MakeOpenSource is a collaborative open-source club 
+            led by University at Buffalo computer science students. 
+            Our club is dedicated to the development and deployment of 
+            open-source software. All projects created under the club 
+            will be available to view and modify given the restrictions 
+            of each individual project's license.
+        </p>
+    </div>
 
-    <h2>Team</h2>
-    <p>
-        MakeOpenSource is recognized by University at Buffalo's
-        Department of Computer Science and Engineering as a full-time
-        Computer Science club. Our team is comprised of undergraduate 
-        and graduate computer science students.
-    </p>
+    <div class="row mb-3">
+        <h2>Team</h2>
+        <p>
+            MakeOpenSource is recognized by University at Buffalo's
+            Department of Computer Science and Engineering as a full-time
+            Computer Science club. Our team is comprised of undergraduate 
+            and graduate students from the University at Buffalo.
+        </p>
+    </div>
 
-    <h2>Get Involved</h2>
-    <p>
-        Current University at Buffalo Students can join the club through 
-        our <a href="{% url 'join:index' %}">join portal</a>
-    </p>
+    <div class="row mb-3">
+        <h2>Get Involved</h2>
+        <p>
+            Current University at Buffalo Students can join the club through 
+            our <a href="{% url 'join:index' %}">join portal</a>
+        </p>
+    </div>
+    
 </div>
 {% endblock %}

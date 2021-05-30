@@ -1,23 +1,28 @@
 {% extends "base/base_template.html" %}
 
 {% block content %}
-<h1>IdeaLab</h1>
+<div class="container" style="max-width: 600px;">
+	<h1 style="max-width: 600px;">IdeaLab</h1>
 
-<div class="d-flex flex-wrap">
-<div class="me-5" style="min-width: 50%;">
-    <form action="/idealab/" method="post">
-    	{% csrf_token %}
+	<p>Idealab is a forum for new open-source project ideas. 
+		If you would like to submit an idea, please fill out 
+		the following form. Once the idea is approved it will 
+		appear on this page; the team will then begin the process 
+		of converting it to a project!</p>
+	
+	<form action="/idealab/" method="post">
+		{% csrf_token %}
 		{% for field in form %}
-        <div class="mb-3">
-            {{ field.label_tag }} {{ field }}
-            {% if field.help_text %}
-                <p class="help">{{ field.help_text|safe }}</p>
-            {% endif %}
-        </div>
-    	{% endfor %}
+			<div class="mb-3">
+				{{ field.label_tag }} {{ field }}
+				{% if field.help_text %}
+					<p class="help">{{ field.help_text|safe }}</p>
+				{% endif %}
+			</div>
+		{% endfor %}
 		<div class="col-12">
-        	<input type="submit" value="Submit" class="btn btn-primary">
-    	</div>
+			<input type="submit" value="Submit" class="btn btn-primary">
+		</div>
 	</form>
 </div>
 
@@ -36,6 +41,5 @@
 			</div>
 		{% endif %}
 	{% endfor %}
-	{% endblock %}
 </div>
-</div>
+{% endblock %}
