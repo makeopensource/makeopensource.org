@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 	'idealab.apps.IdealabConfig',
 	'projects.apps.ProjectsConfig',
 	'join.apps.JoinConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

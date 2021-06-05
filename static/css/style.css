@@ -26,6 +26,25 @@
 	color: grey !important;
 }
 
+#announcements {
+    height: 25px;
+    filter: none;
+
+    -webkit-transition: filter 0.2s;
+    -moz-transition: filter 0.2s;
+    -o-transition: filter 0.2s;
+    transition: filter 0.2s;
+}
+
+#announcements:hover {
+    filter: invert(62%) 
+        sepia(0%) 
+        saturate(1%) 
+        hue-rotate(227deg) 
+        brightness(82%) 
+        contrast(93%);
+}
+
 
 /* header background */
 
