@@ -38,7 +38,10 @@ INSTALLED_APPS = [
 	'idealab.apps.IdealabConfig',
 	'projects.apps.ProjectsConfig',
 	'join.apps.JoinConfig',
+    'announcements.apps.AnnouncementsConfig',
     'rest_framework',
+    'django_filters',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,5 +153,7 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'anon': '10/minute',
         'user': '10/minute'
-    }
+    },
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }

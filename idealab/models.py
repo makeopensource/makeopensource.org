@@ -1,6 +1,5 @@
 from django.db import models
 import datetime
-from django.contrib import admin
 
 
 # Author of an Idea
