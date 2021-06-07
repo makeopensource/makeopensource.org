@@ -7,7 +7,6 @@ from .serializers import AnnouncementSerializer
 from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 
-
 # handles GET and POST requests for /announcements/
 class AnnouncementList(generics.ListCreateAPIView):
     queryset = Announcement.objects.all()
@@ -21,3 +20,5 @@ class AnnouncementDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_field = 'discord_id'
+
