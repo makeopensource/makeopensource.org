@@ -38,6 +38,11 @@ INSTALLED_APPS = [
 	'idealab.apps.IdealabConfig',
 	'projects.apps.ProjectsConfig',
 	'join.apps.JoinConfig',
+    'announcements.apps.AnnouncementsConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -133,3 +138,28 @@ STATICFILES_DIRS = [
 # Models
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+
+# DJANDO REST FRAMEWORK
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/minute',
+        'user': '10/minute'
+    },
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

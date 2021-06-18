@@ -1,0 +1,10 @@
+from rest_framework import serializers
+from .models import Announcement
+
+
+class AnnouncementSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Announcement
+        fields = ['text', 'discord_id', 'created_at']
+

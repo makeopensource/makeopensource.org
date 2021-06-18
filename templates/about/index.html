@@ -6,7 +6,7 @@
         <h1>About</h1>
         <p>
             MakeOpenSource is a collaborative open-source club 
-            led by University at Buffalo computer science students. 
+            led by computer science students at the University at Buffalo. 
             Our club is dedicated to the development and deployment of 
             open-source software. All projects created under the club 
             will be available to view and modify given the restrictions 
@@ -15,12 +15,37 @@
     </div>
 
     <div class="row mb-3">
-        <h2>Team</h2>
+        <h2>Our Team</h2>
         <p>
             MakeOpenSource is recognized by University at Buffalo's
             Department of Computer Science and Engineering as a full-time
             Computer Science club. Our team is comprised of undergraduate 
-            and graduate students from the University at Buffalo.
+            and graduate students from the University at Buffalo. Membership 
+            is open to all University at Buffalo students regardless of their 
+            background in computer science and open source.
+        </p>
+    </div>
+
+    <div class="row mb-3">
+        <h2>Idealab</h2>
+        <p>
+            Idealab is a forum for new open-source project ideas. 
+            If you would like to submit an idea, please fill out 
+            the following form. Once the idea is approved it will 
+            appear on the <a href="{% url 'idealab:index' %}">IdeaLab</a>
+            webpage. Once ideas are approved and migrated, your idea will 
+            officially be a project and will appear in the 
+            <a href="{% url 'projects:index' %}">Projects</a> webpage.
+        </p>
+    </div>
+
+    <div class="row mb-3">
+        <h2>Projects</h2>
+        <p>
+            All Projects visible on the MakeOpenSource Github page are 
+            open to contributions. Each project will have a contributions.txt 
+            file to specify a contribution format unique to that project, to 
+            ensure that submission adhere to existing formats.
         </p>
     </div>
 
@@ -28,9 +53,10 @@
         <h2>Get Involved</h2>
         <p>
             Current University at Buffalo Students can join the club through 
-            our <a href="{% url 'join:index' %}">join portal</a>
+            our <a href="{% url 'join:index' %}">join portal</a>. For updates 
+            on upcoming activities and events, join our Discord server.
         </p>
     </div>
-    
+
 </div>
 {% endblock %}
