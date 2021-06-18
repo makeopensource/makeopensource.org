@@ -13,7 +13,7 @@ class Author(models.Model):
 class Idea(models.Model):
     title = models.CharField(max_length=200)
     release_date = models.DateField('date released', default=datetime.date.today, editable=False)
-    description = models.TextField(max_length=1000)
+    description = models.TextField(max_length=500)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     approved = models.BooleanField('approval status', default=False)
     upvotes = models.PositiveIntegerField(default=0)

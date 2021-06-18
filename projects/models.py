@@ -10,7 +10,7 @@ class Contributor(models.Model):
 
 class Project(models.Model):
 	title = models.CharField(max_length=200)
-	description = models.TextField(max_length=2000)
+	description = models.TextField(max_length=500)
 	contributors = models.ManyToManyField(Contributor)
 	release_date = models.DateField(auto_now=False)
 	github = models.CharField('github link', max_length=500, blank=True)
