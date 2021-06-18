@@ -12,7 +12,8 @@ def index(request):
             desc = form.cleaned_data['desc']
             authorname = form.cleaned_data['authorname']
             authoremail = form.cleaned_data['authoremail']
-            a = Author(name=authorname, email=authoremail)
+            authorgithub = form.cleaned_data['authorgithub']
+            a = Author(name=authorname, email=authoremail, github=authorgithub)
             a.save()
             b = Idea(title=name, description=desc, author=a)
             b.save()

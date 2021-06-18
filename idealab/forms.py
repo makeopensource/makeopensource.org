@@ -33,3 +33,11 @@ class IdeaForm(forms.Form):
         )
     )
 
+    authorgithub = forms.CharField(
+        label='Author Github',
+        max_length=200,
+        widget=forms.TextInput(
+            attrs={'type': 'text', 'class': 'form-control'}
+        )
+    )
+

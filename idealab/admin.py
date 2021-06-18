@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Idea, Author
 from projects.models import Project, Contributor
+import ghfunc
 
 @admin.action(description='Approve an idea(s)')
 def approve(modeladmin, request, queryset):
@@ -18,8 +19,10 @@ def publish(modeladmin, request, queryset):
                 if not obj.approved:
                         return
 
-        for obj in queryset: 
-                b = Project(title=obj.title, description=obj.description, release_date=obj.release_date)  
+        for obj in queryset:
+                ghlink = ghfunc.createRepo(obj.title, obj.description)
+                ghfunc.permissionUserToRepo(obj.author.github, ghlink)
+                b = Project(title=obj.title, description=obj.description, github = ghlink, release_date=obj.release_date)  
                 b.save()
                 obj.delete()
         return
