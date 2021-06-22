@@ -5,9 +5,7 @@ from dotenv import load_dotenv
 # Notice for this we require a URL to the github repo. This function should
 # Parse the returned JSON and give proper about info. Review the return info in the
 # git hub documentation
-# We require a token to get unlimited requests. (Else i'd be restricted to 60 per hour)
-# My goal here is to parse the "description" tag of all our projects. Using the rest library (and requests)
-# to correctly utilize
+# We require a token to get unlimited requests. (Else you would be restricted to 60 per hour)
 # TODO REMOVE THE TOKEN AFTER USE
 load_dotenv()
 token = os.getenv('API_TOKEN')
