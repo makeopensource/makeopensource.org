@@ -6,6 +6,7 @@ WORKDIR /root
 COPY . .
 
 RUN pip3 install -r requirements.txt
+RUN python3 generate_key.py
 RUN python3 manage.py migrate
 
 EXPOSE 8000
