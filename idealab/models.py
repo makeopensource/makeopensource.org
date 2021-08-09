@@ -5,7 +5,7 @@ import datetime
 class Author(models.Model):
         name = models.CharField(max_length=200)
         email = models.EmailField(max_length=200)
-        github = models.CharField(max_length=200)
+        github = models.CharField(max_length=200, default='')
         def __str__(self):
                 return self.name
 

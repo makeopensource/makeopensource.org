@@ -7,7 +7,10 @@ from .serializers import AnnouncementSerializer
 from rest_framework import generics, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 
-# handles GET and POST requests for /announcements/
+def index(request):
+    announcements = {'announcement_list': list(Announcement.objects.order_by('-created_at'))}
+    return render(request, 'announcements/index.html', announcements)
+
 class AnnouncementList(generics.ListCreateAPIView):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer

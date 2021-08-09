@@ -1,0 +1,18 @@
+{% extends "base/base_template.html" %}
+
+{% block content %}
+<div class="container" style="max-width: 600px;">
+    <h1 style="max-width: 600px;">Announcements</h1>
+    {% for announcement in announcement_list %}
+        <div class="mb-4">
+            <p class="mb-0" style="color: gray;">{{ announcement.created_at|date:"m/d/y" }}</p>
+            <p>{{ announcement.text }}</p>
+            <div>
+                {% for reaction in announcement.reactions %}
+                    <img src="">
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
