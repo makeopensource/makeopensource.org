@@ -3,10 +3,9 @@
 {% block content %}
 <div class="container" style="max-width: 600px;">
     <div class="row mb-3">
-        <h1>About</h1>
-        <p>
-            MakeOpenSource is a collaborative open-source club 
-            led by computer science students at the University at Buffalo. 
+        <h1 class="mb-4">About</h1>
+        <h5>We are University at Buffalo's Open-Source Club!</h5>
+        <p class="text-secondary"> 
             Our club is dedicated to the development and deployment of 
             open-source software. All projects created under the club 
             will be available to view and modify given the restrictions 
@@ -15,15 +14,84 @@
     </div>
 
     <div class="row mb-3">
+        <h2>Software</h2>
+        
+        <div class="container p-2 mb-2 bg-light rounded">
+            <a href="https://makeopensource.com">
+                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/icon.png">
+            </a>
+            <a href="https://github.com/makeopensource">
+                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/github-logo.png">
+            </a>
+            <a href="https://discord.com">
+                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/Discord-Logo-Black.png">
+            </a>
+        </div>
+
+        <ul>
+        </ul>
+    </div>
+
+    <div class="row mb-3">
         <h2>Our Team</h2>
-        <p>
-            MakeOpenSource is recognized by University at Buffalo's
-            Department of Computer Science and Engineering as a full-time
-            Computer Science club. Our team is comprised of undergraduate 
-            and graduate students from the University at Buffalo. Membership 
-            is open to all University at Buffalo students regardless of their 
-            background in computer science and open source.
-        </p>
+        <div class="mb-2">
+            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+            <div>
+                <b>Emil Kovacev</b>
+                <p>
+                    <span class="text-primary">Director</span><br>
+                    Computer Science BS
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+
+            <div>
+                <b>Nick Brown</b>
+                <p>
+                    <span class="text-primary">Vice President</span><br>
+                    Computer Science BA
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+
+            <div>
+                <b>Jake Savitt</b>
+                <p>
+                    <span class="text-primary">Treasurer</span><br>
+                    Computer Engineering BS
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+
+            <div>
+                <b>Anthony Radcliffe</b>
+                <p>
+                    <span class="text-primary">Head of Licensing</span><br>
+                    Political Science BA
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-2">
+            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+
+            <div>
+                <b>Adam Russell</b>
+                <p>
+                    <span class="text-primary">Events Coordinator</span><br>
+                    Computer Science BS
+                </p>
+            </div>
+        </div>
     </div>
 
     <div class="row mb-3">
@@ -49,12 +117,14 @@
         </p>
     </div>
 
-    <div class="row mb-3">
+    <div class="row">
         <h2>Get Involved</h2>
         <p>
             Current University at Buffalo Students can join the club through 
             our <a href="{% url 'join:index' %}">join portal</a>. For updates 
-            on upcoming activities and events, join our Discord server.
+            on upcoming activities and events, join our Discord server. To check
+             out our latest projects, take a look at our 
+             <a href="https://github.com/makeopensource">GitHub</a> profile.
         </p>
     </div>
 

@@ -3,22 +3,27 @@
 {% block content %}
 <div class="container" style="max-width: 600px;">
 	<h1>Join</h1>
-	<p></p>
-	
 	<form action="/join/" method="post">
-		{% csrf_token %}
-		{% for field in form %}
-			<div class="mb-3 col-10">
-				{{ field.label_tag }} {{ field }}
-				{% if field.help_text %}
-					<p class="help">{{ field.help_text|safe }}</p>
-				{% endif %}
-			</div>
-		{% endfor %}
-		<div class="col-12">
-			<input type="submit" value="Submit" class="btn btn-primary">
-		</div>
-	</form>
+        {% csrf_token %}
+        <div class="container p-5 bg-light rounded-3 shadow">
+        {% if join_status == 'joined' %}
+            <div class="form-floating">
+                <h3>You're officially a member! 🥳</h3>
+                <p>Please check your email to confirm your identity and see your next steps</p>
+            </div>
+        {% else %}
+            {% for field in form %}
+                <div class="form-floating mb-3">
+                    {{ field }}
+                    <label for={{ field.label }}>{{ field.label }}</label>
+                </div>
+            {% endfor %}
+
+            <div class="d-grid">
+                <input class="btn btn-primary btn-lg" id="submitButton" type="submit" value="Submit">
+            </div>
+        {% endif %}
+    </form>
 </div>
 
 {% endblock %}
