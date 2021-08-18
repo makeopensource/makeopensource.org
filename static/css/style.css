@@ -1,9 +1,34 @@
+body {
+    padding: 30px 50px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 10px;
+    }
+}
+
+
 /* navbar */
 
 #bar-nav {
     padding: 0;
     list-style: none;
 }
+
+@media (max-width: 900px) {
+    #bar-nav {
+        display: none;
+    }
+}
+
+
 
 #bar-nav li {
 	display: inline-block;
@@ -58,6 +83,19 @@
 #header h1 {
     padding: 80px;
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    #header h1 {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 550px) {
+    #header h1 {
+        padding: 20px;
+        font-size: 22px;
+    }
 }
 
 #information {

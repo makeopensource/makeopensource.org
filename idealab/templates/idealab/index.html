@@ -4,21 +4,19 @@
 <div class="container" style="max-width: 600px;">
 	<h1 style="max-width: 600px;">IdeaLab</h1>
 
-	<p>Idealab is a forum for new open-source project ideas. 
+	<p>
+		Idealab is a forum for new open-source project ideas. 
 		If you would like to submit an idea, please fill out 
-		the following form. Once the idea is approved it will 
+		the following form. <br><br> Once the idea is approved it will 
 		appear on this page; the team will then begin the process 
-		of converting it to a project!</p>
+		of converting it to a project!
+	</p>
 	
 	<form action="/idealab/" method="post">
 		{% csrf_token %}
 		{% for field in form %}
-			<div class="mb-3">
-				{{ field.label_tag }} {{ field }}
-				{% if field.help_text %}
-					<p class="help">{{ field.help_text|safe }}</p>
-				{% endif %}
-			</div>
+			<div class="mb-3">{{ field.label_tag }} {{ field }}</div>
+			<div class="control-group {%if field.errors %}error{%endif%}">
 		{% endfor %}
 		<div class="col-12">
 			<input type="submit" value="Submit" class="btn btn-primary">
