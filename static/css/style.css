@@ -8,48 +8,9 @@ body {
     }
 }
 
-@media (max-width: 550px) {
-    body {
-        padding: 10px;
-    }
-}
-
 
 /* navbar */
 
-#bar-nav {
-    padding: 0;
-    list-style: none;
-}
-
-@media (max-width: 900px) {
-    #bar-nav {
-        display: none;
-    }
-}
-
-
-
-#bar-nav li {
-	display: inline-block;
-	margin-right: 50px;
-}
-
-#bar-nav a {
-	font-weight: 600; 
-    padding: 0; 
-	text-decoration: none;
-	color: black !important;
-
-    -webkit-transition: color 0.2s;
-    -moz-transition: color 0.2s;
-    -o-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-#bar-nav a:hover {
-	color: grey !important;
-}
 
 #announcements {
     height: 25px;
