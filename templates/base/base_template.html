@@ -19,16 +19,30 @@
 
   <body>
     <!-- navigation -->
-    <ul id="bar-nav" class="mb-5">
-		<li><a href="/">MakeOpenSource</a></li>
-        <li><a href="{% url 'announcements:index' %}">Announcements</a></li>
-		<li><a href="{% url 'projects:index' %}">Projects</a></li>
-		<li><a href="{% url 'idealab:index' %}">IdeaLab</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="{% url 'join:index' %}">Join</a></li>
-	</ul>
 
-	<div>{% block content %}{% endblock %}</div>
+	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light mb-3">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">
+      			<img src="{% static 'assets/icon.png' %}" alt="" width="30" height="30">
+    		</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<a class="nav-link float-" href="{% url 'announcements:index' %}"><b>Announcements</b></a>
+					{% comment %} <a class="nav-link" href="{% url 'projects:index' %}">Projects</a> {% endcomment %}
+					{% comment %} <a class="nav-link" href="{% url 'idealab:index' %}">IdeaLab</a> {% endcomment %}
+					<a class="nav-link" href="/about"><b>About</b></a>
+					<a class="nav-link" href="{% url 'join:index' %}"><b>Join</b></a>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
+	<div class="mt-5">{% block content %}{% endblock %}</div>
+
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>
 </html>
