@@ -15,7 +15,10 @@
             {% for field in form %}
                 <div class="form-floating mb-3">
                     {{ field }}
-                    <label for={{ field.label }}>{{ field.label }}</label>
+                    <label class="{%if field.errors %}is-invalid{%endif%}" for={{ field.label }}>{{ field.label }}</label>
+                    {% for error in field.errors %}
+                        <div class="invalid-feedback">{{ error }}</div>
+                    {% endfor %}
                 </div>
             {% endfor %}
 

@@ -1,32 +1,43 @@
 from django import forms
 from datetime import datetime
+
+from django.core.exceptions import ValidationError
 from .models import Member
+
 
 YEAR = datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
 
+
 class JoinForm(forms.Form):
 
-    def is_unique(self) -> bool:
-        return not Member.objects.filter(email=self.data['email']).exists()
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if len(name.split()) > 1:
+            return self.cleaned_data['name']
+        else:
+            self.add_error('name', 'Invalid Name')
 
-    def unique_retval(self) -> str:
-        if self.is_unique():
-            return 'is-invalid'
-        return 'is-valid'
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not Member.objects.filter(email=email).exists():
+            return email
+        else:
+            self.add_error('email', 'An account was already registered with this email')
+
 
     name = forms.CharField(
         required=True,
-        label='Name',
+        label='Full Name',
         max_length=100,
         widget=forms.TextInput(
             attrs={
                 'type': 'text', 
                 'class': 'form-control',
-                'placeholder': 'Name'
-            }
-        )
-    )
+                'placeholder': 'Full Name'
+            }))
+
     email = forms.EmailField(
         required=True,
         label='Email',
@@ -35,10 +46,8 @@ class JoinForm(forms.Form):
             attrs={
                 'type': 'email', 
                 'class': 'form-control',
-                'placeholder': 'Email'
-            }
-        )
-    )
+                'placeholder': 'alan@makeopensource.org'
+            }))
 
     exp_grad_year = forms.IntegerField(
         required=True,
@@ -48,9 +57,7 @@ class JoinForm(forms.Form):
             attrs={
                 'class': 'form-select',
                 'placeholder': 'Graduation Year'
-            }
-        )
-    )
+            }))
 
     major = forms.CharField(
         required=True,
@@ -60,7 +67,5 @@ class JoinForm(forms.Form):
             attrs={
                 'type': 'text', 
                 'class': 'form-control',
-                'placeholder': 'Major'
-            }
-        )
-    )
+                'placeholder': 'Computer Science'
+            }))
