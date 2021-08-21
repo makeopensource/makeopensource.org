@@ -17,8 +17,16 @@ def index(request):
             name = form.cleaned_data['name']
             major = form.cleaned_data['major']
             exp_grad_year = form.cleaned_data['exp_grad_year']
+            notifications = form.cleaned_data['notifications']
 
-            new_member = Member(email=email, name=name, major=major, exp_grad_year=exp_grad_year)
+            new_member = Member(
+                email=email, 
+                name=name, 
+                major=major, 
+                exp_grad_year=exp_grad_year, 
+                notifications=notifications
+            )
+            
             new_member.save()
             request.session['join_status'] = 'joined'
 

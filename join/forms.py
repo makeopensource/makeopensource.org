@@ -1,31 +1,39 @@
 from django import forms
-from datetime import datetime
+import datetime
 
 from django.core.exceptions import ValidationError
 from .models import Member
 
 
-YEAR = datetime.today().year
+YEAR = datetime.datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
-
+JOIN_EXPIRE = [datetime.datetime.now() - datetime.timedelta(minutes=10), datetime.datetime.now()]
 
 class JoinForm(forms.Form):
 
     def clean_name(self):
         name = self.cleaned_data['name']
-        if len(name.split()) > 1:
-            return self.cleaned_data['name']
-        else:
+        if len(name.split()) < 2:
             self.add_error('name', 'Invalid Name')
-
+        return name
+    
+    def registered_email(self, email) -> bool:
+        return Member.objects.filter(email=email, verified=False, join_date__range=JOIN_EXPIRE).exists() \
+            or Member.objects.filter(email=email, verified=True).exists()
 
     def clean_email(self):
         email = self.cleaned_data['email']
-        if not Member.objects.filter(email=email).exists():
-            return email
-        else:
+        if len(email.split('@')) > 1 and email.split('@')[1] != 'buffalo.edu':
+            self.add_error('email', 'Students must register with their @buffalo.edu email')
+        elif self.registered_email(email):
             self.add_error('email', 'An account was already registered with this email')
-
+        return email
+    
+    def clean_constitution(self):
+        constitution = self.cleaned_data['constitution']
+        if not constitution:
+            self.add_error('constitution', 'Please agree to the constitution')
+        return constitution
 
     name = forms.CharField(
         required=True,
@@ -33,10 +41,13 @@ class JoinForm(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
+                'id': 'name',
                 'type': 'text', 
                 'class': 'form-control',
-                'placeholder': 'Full Name'
-            }))
+                'placeholder': 'Full Name',
+                'div_css': 'form-floating'
+            }),
+    )
 
     email = forms.EmailField(
         required=True,
@@ -44,10 +55,13 @@ class JoinForm(forms.Form):
         max_length=100,
         widget=forms.EmailInput(
             attrs={
-                'type': 'email', 
+                'id': 'email',
+                'type': 'email',
                 'class': 'form-control',
-                'placeholder': 'alan@makeopensource.org'
-            }))
+                'placeholder': 'alan@makeopensource.org',
+                'div_css': 'form-floating'
+            }),
+    )
 
     exp_grad_year = forms.IntegerField(
         required=True,
@@ -55,9 +69,12 @@ class JoinForm(forms.Form):
         widget=forms.Select(
             choices=GRAD_YEAR,
             attrs={
+                'id': 'grad_year',
                 'class': 'form-select',
-                'placeholder': 'Graduation Year'
-            }))
+                'placeholder': 'Graduation Year',
+                'div_css': 'form-floating'
+            }),
+    )
 
     major = forms.CharField(
         required=True,
@@ -65,7 +82,36 @@ class JoinForm(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
+                'id': 'major',
                 'type': 'text', 
                 'class': 'form-control',
-                'placeholder': 'Computer Science'
-            }))
+                'placeholder': 'Computer Science',
+                'div_css': 'form-floating'
+            }),
+    )
+    
+    notifications = forms.BooleanField(
+        required=False,
+        initial=True,
+        label='Sign up for email announcements and notifications',
+        widget=forms.CheckboxInput(
+            attrs={
+                'id': 'notifications',
+                'class': 'form-check-input',
+                'div_css': 'form-check'
+            }),
+    )
+
+    constitution = forms.BooleanField(
+        required=False,
+        initial=False,
+        label=  """I confirm that I have read and agree to 
+                MakeOpenSource's Constitution and that I am 
+                a student at the University at Buffalo""",
+        widget=forms.CheckboxInput(
+            attrs={
+                'id': 'constitution',
+                'class': 'form-check-input',
+                'div_css': 'form-check'
+            }),
+    )

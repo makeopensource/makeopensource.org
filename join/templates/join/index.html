@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container" style="max-width: 600px;">
 	<h1>Join</h1>
-	<form action="/join/" method="post">
+	<form class="needs-validation" action="/join/" method="post" novalidate>
         {% csrf_token %}
         <div class="container p-5 bg-light rounded-3 shadow">
         {% if join_status == 'joined' %}
@@ -13,9 +13,9 @@
             </div>
         {% else %}
             {% for field in form %}
-                <div class="form-floating mb-3">
+                <div class="{{ field.field.widget.attrs.div_css }} mb-3">
                     {{ field }}
-                    <label class="{%if field.errors %}is-invalid{%endif%}" for={{ field.label }}>{{ field.label }}</label>
+                    <label for="{{ field.field.widget.attrs.id }}">{{ field.label }}</label>
                     {% for error in field.errors %}
                         <div class="invalid-feedback">{{ error }}</div>
                     {% endfor %}
@@ -27,6 +27,8 @@
             </div>
         {% endif %}
     </form>
+    {% load static %}
+    {% comment %} <script src="{% static 'js/join.js' %}"></script> {% endcomment %}
 </div>
 
 {% endblock %}
