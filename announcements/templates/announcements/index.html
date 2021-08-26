@@ -3,6 +3,9 @@
 {% block content %}
 <div class="container" style="max-width: 600px;">
     <h1 style="max-width: 600px;">Announcements</h1>
+    {% if not announcement_list %}
+        <p>Nothing here for now, check back later!</p>
+    {% endif %}
     {% for announcement in announcement_list %}
         <div class="mb-4">
             <p class="mb-0" style="color: gray;">{{ announcement.created_at|date:"m/d/y" }}</p>

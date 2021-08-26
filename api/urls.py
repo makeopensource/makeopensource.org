@@ -11,11 +11,7 @@ from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
 
 
 urlpatterns = [
-
-#    path('', SpectacularSwaggerView.as_view()),
-#    path('docs/', SpectacularSwaggerView.as_view(url_name='schema')),
-#    path('schema/', SpectacularAPIView.as_view(), name='schema'),
-
+    
     # API gateway for Ideas
     path('ideas/', idealab_views.IdeaList.as_view()),
     path('ideas/<int:pk>/', idealab_views.IdeaDetail.as_view()),

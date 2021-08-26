@@ -7,7 +7,7 @@ from .models import Member
 
 YEAR = datetime.datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
-JOIN_EXPIRE = [datetime.datetime.now() - datetime.timedelta(minutes=10), datetime.datetime.now()]
+JOIN_EXPIRE = [datetime.datetime.now() - datetime.timedelta(hours=24), datetime.datetime.now()]
 
 class JoinForm(forms.Form):
 

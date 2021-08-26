@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>Hi {{ member.username }},</p>
+        <p>
+            Thanks for joining MakeOpenSource! 🥳 Please click 
+            <a href="https://makeopensource.org{{ domain }}{% url 'join:activate' uidb64=uid token=token %}">here</a>
+            to validate your email:
+            This link will expire in 24 hours<br>
+
+            If {{ member.username }} isn't you, you can safely ignore this email.
+            
+            {% comment %} {% url 'join:deactivate' uidb64=uid token=token %}<br> {% endcomment %}
+
+
+            From the MakeOpenSource Team
+            https://makeopensource.org
+        </p>
+    </body>
+</html>

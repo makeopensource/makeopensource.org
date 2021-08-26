@@ -4,7 +4,7 @@
 	{% block title %}<title>MakeOpenSource</title>{% endblock %}
     
 	{% load static %}
-	
+
 	<link rel="icon" type="image" href="{% static 'assets/favicon.ico' %}"/>
 
     <meta charset="utf-8">
@@ -30,11 +30,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
-					<a class="nav-link float-" href="{% url 'announcements:index' %}"><b>Announcements</b></a>
+					<a class="nav-link float-" href="{% url 'announcements:index' %}">Announcements</a>
 					{% comment %} <a class="nav-link" href="{% url 'projects:index' %}">Projects</a> {% endcomment %}
 					{% comment %} <a class="nav-link" href="{% url 'idealab:index' %}">IdeaLab</a> {% endcomment %}
-					<a class="nav-link" href="/about"><b>About</b></a>
-					<a class="nav-link" href="{% url 'join:index' %}"><b>Join</b></a>
+					<a class="nav-link" href="/about">About</a>
+					<a class="nav-link" href="{% url 'join:index' %}"><span style="color: red">Join</span></a>
 				</ul>
 			</div>
 		</div>
