@@ -7,7 +7,6 @@ from idealab import views as idealab_views
 from projects import views as project_views
 from announcements import views as announcement_views
 
-from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
 
 
 urlpatterns = [
