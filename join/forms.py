@@ -1,16 +1,16 @@
 from django import forms
 import datetime
+from django.utils import timezone
 
-from django.core.exceptions import ValidationError
 from .models import Member
 
 
-YEAR = datetime.datetime.today().year
+YEAR: int = datetime.datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
-JOIN_EXPIRE = [datetime.datetime.now() - datetime.timedelta(hours=24), datetime.datetime.now()]
+JOIN_EXPIRE = [datetime.datetime.now(tz=timezone.utc) - datetime.timedelta(hours=24), datetime.datetime.now(tz=timezone.utc)]
 
 class JoinForm(forms.Form):
-
+    
     def clean_name(self):
         name = self.cleaned_data['name']
         if len(name.split()) < 2:
