@@ -1,31 +1,24 @@
 {% extends "base/base_template.html" %}
 
 {% block content %}
-<div class="container" style="max-width: 600px;">
+<div class="container mt-3" style="max-width: 600px ">
 	<h1>Join</h1>
 	<form class="needs-validation" action="/join/" method="post" novalidate>
         {% csrf_token %}
         <div class="container p-5 bg-light rounded-3 shadow">
-        {% if join_status == 'joined' %}
-            <div class="form-floating">
-                <h3>You're officially a member! 🥳</h3>
-                <p>Please check your email to confirm your identity and see your next steps</p>
+        {% for field in form %}
+            <div class="{{ field.field.widget.attrs.div_css }} mb-3">
+                {{ field }}
+                <label for="{{ field.field.widget.attrs.id }}">{{ field.label }}</label>
+                {% for error in field.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
             </div>
-        {% else %}
-            {% for field in form %}
-                <div class="{{ field.field.widget.attrs.div_css }} mb-3">
-                    {{ field }}
-                    <label for="{{ field.field.widget.attrs.id }}">{{ field.label }}</label>
-                    {% for error in field.errors %}
-                        <div class="invalid-feedback">{{ error }}</div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
+        {% endfor %}
 
-            <div class="d-grid">
-                <input class="btn btn-primary btn-lg" id="submitButton" type="submit" value="Submit">
-            </div>
-        {% endif %}
+        <div class="d-grid">
+            <input class="btn btn-primary btn-lg" id="submitButton" type="submit" value="Submit">
+        </div>
     </form>
     {% load static %}
 </div>
