@@ -68,11 +68,11 @@ def index(request):
 
 def activate(request, uidb64, token):
     try:
-        uid = force_text(urlsafe_base64_decode(uidb64)).decode()
+        uid = force_text(urlsafe_base64_decode(uidb64)) #.decode()
         member: Member = Member.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, Member.DoesNotExist):
         member = None
-    if member is not None and account_activation_token.check_token(member, token) and account_activation_token.is_valid():
+    if member is not None and account_activation_token.check_token(member, token) and account_activation_token.is_valid(member):
         member.verified = True
         member.save()
         return HttpResponse('Thanks for verifying your email! You are now officially a club member ')

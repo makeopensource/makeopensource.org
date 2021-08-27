@@ -1,6 +1,6 @@
 from join.models import Member
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
-
+from django.utils import timezone
 import datetime
 
 
@@ -9,7 +9,7 @@ class TokenGenerator(PasswordResetTokenGenerator):
         token: str = str(member.pk) + str(timestamp)
         return token
     
-    def is_valid() -> bool:
-        return datetime.datetime.now() - datetime.timedelta(hours=24) > datetime.timedelta(hours=0)
+    def is_valid(self,member) -> bool:
+        return datetime.datetime.now(tz=timezone.utc) - datetime.timedelta(hours=24) < member.join_date
 
 account_activation_token = TokenGenerator()
