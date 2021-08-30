@@ -1,9 +1,9 @@
 from django.db import models
 from django.forms import ModelForm, widgets
-from datetime import datetime
+import datetime
 from django.utils import timezone
 
-YEAR = datetime.today().year
+YEAR = datetime.datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
 
 class Member(models.Model):
@@ -14,6 +14,10 @@ class Member(models.Model):
 	join_date = models.DateTimeField(default=timezone.now, editable=False)
 	verified = models.BooleanField(default=False)
 	notifications = models.BooleanField(default=True)
+	
 
 	def __str__(self):
 		return self.name
+
+	def est_join_date(self):
+		return self.join_date - datetime.timedelta(hours=4)
