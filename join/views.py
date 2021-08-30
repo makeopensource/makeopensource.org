@@ -13,14 +13,15 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
+from django.utils.html import strip_tags
 
 
 def index(request):
     
-    if 'join_status' not in request.session:
-        request.session['join_status'] = None
+    if 'join_status' in request.session and request.session['join_status'] == 'joined':
+        render(request, 'join/send_verification.html')
 
-    if request.method == "POST":
+    elif request.method == "POST":
         form = JoinForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
@@ -42,14 +43,17 @@ def index(request):
 
             current_site = get_current_site(request)
 
+            html_content = render_to_string('join/acc_active_email.html', {
+                'member': new_member,
+                'email': current_site.domain,
+                'uid':urlsafe_base64_encode(force_bytes(new_member.pk)),
+                'token':account_activation_token.make_token(new_member),
+            })
+
             send_mail(
                 subject='Verify your identity: Thank you for joining MakeOpenSource!',
-                message=render_to_string('join/acc_active_email.html', {
-                    'member': new_member,
-                    'email': current_site.domain,
-                    'uid':urlsafe_base64_encode(force_bytes(new_member.pk)),
-                    'token':account_activation_token.make_token(new_member),
-                }),
+                html_message = html_content,
+                plain_message = strip_tags(html_content),
                 from_email='no-reply@makeopensource.org',
                 recipient_list=[email],
                 fail_silently=False,
@@ -62,8 +66,7 @@ def index(request):
     else:
         form = JoinForm()
     
-    return render(request, 'join/index.html',
-        {'form': form, 'join_status': request.session['join_status']})
+    return render(request, 'join/index.html', {'form': form})
 
 
 def activate(request, uidb64, token):
@@ -75,6 +78,6 @@ def activate(request, uidb64, token):
     if member is not None and account_activation_token.check_token(member, token) and account_activation_token.is_valid(member):
         member.verified = True
         member.save()
-        return HttpResponse('Thanks for verifying your email! You are now officially a club member ')
+        return render(request, 'join/verify.html')
     else:
         return HttpResponse('Activation link is invalid!')

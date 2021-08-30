@@ -21,6 +21,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+handler404 = 'api.views.page_not_found'
+handler500 = 'api.views.error'
+handler400 = 'api.views.page_not_found'
+
 urlpatterns = [
 	path('', TemplateView.as_view(template_name='home/index.html')),
     path('api/', include('api.urls')),
