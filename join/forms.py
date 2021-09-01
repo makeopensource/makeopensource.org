@@ -7,6 +7,8 @@ from .models import Member
 
 YEAR: int = datetime.datetime.today().year
 GRAD_YEAR = [(year, str(year)) for year in range(YEAR, YEAR + 6)]
+# make sure this next line is what you think it should be, this broke the website, you cannot join a tuple and a string. - nick
+GRAD_YEAR[-1] = GRAD_YEAR[-1], ' and beyond'
 JOIN_EXPIRE = [datetime.datetime.now(tz=timezone.utc) - datetime.timedelta(hours=24), datetime.datetime.now(tz=timezone.utc)]
 
 class JoinForm(forms.Form):

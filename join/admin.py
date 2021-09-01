@@ -22,7 +22,8 @@ class MemberAdmin(admin.ModelAdmin):
 		# Please use the date to ensure the mailing list is up to date!
 		writer.writerow([datetime.datetime.now() - datetime.timedelta(hours=4)])  # converts time to est
 		for member in queryset:
-			writer.writerow([member.email])
+			if member.notifications:
+				writer.writerow([member.email])
 		return response
 
 admin.site.register(Member, MemberAdmin)
