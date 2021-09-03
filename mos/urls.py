@@ -19,6 +19,7 @@ from django.views.generic import TemplateView
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
 
 
 handler404 = 'api.views.page_not_found'
@@ -34,4 +35,5 @@ urlpatterns = [
 	path('about/', TemplateView.as_view(template_name='about/index.html')),
     path('announcements/', include('announcements.urls')),
     path('admin/', admin.site.urls),
+    path('discord/', RedirectView.as_view(url='https://discord.gg/xbBPqdqr6n'))
 ]
