@@ -53,7 +53,7 @@ def index(request):
             send_mail(
                 subject='Verify your identity: Thank you for joining MakeOpenSource!',
                 html_message = html_content,
-                plain_message = strip_tags(html_content),
+                message = strip_tags(html_content),
                 from_email='no-reply@makeopensource.org',
                 recipient_list=[email],
                 fail_silently=False,
