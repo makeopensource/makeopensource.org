@@ -19,7 +19,7 @@ from django.utils.html import strip_tags
 def index(request):
     
     if 'join_status' in request.session and request.session['join_status'] == 'joined':
-        render(request, 'join/send_verification.html')
+        return render(request, 'join/send_verification.html')
 
     elif request.method == "POST":
         form = JoinForm(request.POST)
