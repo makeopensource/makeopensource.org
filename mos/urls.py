@@ -35,5 +35,6 @@ urlpatterns = [
 	path('about/', TemplateView.as_view(template_name='about/index.html')),
     path('announcements/', include('announcements.urls')),
     path('admin/', admin.site.urls),
-    path('discord/', RedirectView.as_view(url='https://discord.gg/xbBPqdqr6n'))
+    path('discord/', RedirectView.as_view(url='https://discord.gg/xbBPqdqr6n')),
+    path('github/', RedirectView.as_view(url='https://github.com/makeopensource')),
 ]
