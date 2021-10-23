@@ -5,7 +5,7 @@
     
 	{% load static %}
 
-	<link rel="icon" type="image" href="{% static 'assets/favicon.ico' %}"/>
+	<link rel="icon" type="image" href="{% static 'assets/icons/favicon.ico' %}"/>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,14 +29,13 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<a class="nav-link" href="{% url 'join:index' %}"><span style="color: red">Join</span></a>
+				<ul class="navbar-nav ms-auto">	
 					<a class="nav-link float-" href="{% url 'announcements:index' %}">Announcements</a>
 					<a class="nav-link" href="{% url 'projects:index' %}">Projects</a>
-					{% comment %} <a class="nav-link" href="{% url 'idealab:index' %}">IdeaLab</a> {% endcomment %}
-					<a class="nav-link" href="/about">About</a>
 					<a class="nav-link" href="/github">GitHub</a>
 					<a class="nav-link" href="/discord">Discord</a>
+                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="{% url 'join:index' %}"><span style="color: red">Join</span></a>
                 </ul>
 			</div>
 		</div>
