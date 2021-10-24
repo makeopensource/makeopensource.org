@@ -15,19 +15,22 @@
 
     <div class="row mb-3">
         <h2>Software</h2>
-        
+        {% load static %}
         <div class="container p-2 mb-2 bg-light rounded">
             <a href="https://makeopensource.org">
-                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/icon.png">
+                <img class="float-start m-2" style="max-height: 40px;" src="{% static 'assets/icons/icon.png' %}">
             </a>
             <a href="https://github.com/makeopensource">
-                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/github-logo.png">
+                <img class="float-start m-2" style="max-height: 40px;" src="{% static 'assets/icons/github-logo.png' %}">
             </a>
             <a href="https://discord.com">
-                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/Discord-Logo-Black.png">
+                <img class="float-start m-2" style="max-height: 40px;" src="{% static 'assets/icons/Discord-Logo-Black.png' %}">
             </a>
             <a href="https://drive.google.com/drive/folders/1GnSilJXrW8HiSsiGugIxQwXaOaFy1wT1?usp=sharing">
-                <img class="float-start m-2" style="max-height: 40px;" src="../static/assets/drive-logo.png">
+                <img class="float-start m-2" style="max-height: 40px;" src="{% static 'assets/icons/drive-logo.png' %}">
+            </a>
+            <a href="https://ubuffalo-my.sharepoint.com/:f:/g/personal/njbrown4_buffalo_edu/EjeA3pUstb1Hlmh6H2OS7poBdM2_90W4X4A00f4I2Ki90A?e=NEHxT9">
+                <img class="float-start m-2" style="max-height: 40px;" src="{% static 'assets/icons/onedrive.png' %}">
             </a>
         </div>
 
@@ -38,19 +41,24 @@
     <div class="row mb-3">
         <h2>Our Team</h2>
         <div class="mb-2">
-            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
+            <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/emilkovacev.jpg' %}" />
             <div>
                 <b>Emil Kovacev</b>
                 <p>
-                    <span class="text-primary">Director</span><br>
+                    <span class="text-primary">President</span><br>
                     Computer Science BS
                 </p>
             </div>
         </div>
 
         <div class="mb-2">
-            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
-
+            <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/nickbrown.jpg' %}" />
             <div>
                 <b>Nick Brown</b>
                 <p>
@@ -61,20 +69,24 @@
         </div>
 
         <div class="mb-2">
-            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
-
+            <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/sammiller.jpg' %}" />
             <div>
-                <b>Jake Savitt</b>
+                <b>Sam Miller</b>
                 <p>
-                    <span class="text-primary">Treasurer</span><br>
-                    Computer Engineering BS
+                    <span class="text-primary">Information Lead</span><br>
+                    Biological Sciences BA
                 </p>
             </div>
         </div>
 
         <div class="mb-2">
-            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
-
+            <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/anthonyradcliffe.png' %}" />
             <div>
                 <b>Anthony Radcliffe</b>
                 <p>
@@ -85,8 +97,11 @@
         </div>
 
         <div class="mb-2">
-            <div class="bg-dark rounded-circle me-3" style="width: 75px; height: 75px; float: left;"></div>
-
+             <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/adamrussell.jpg' %}" 
+                />
             <div>
                 <b>Adam Russell</b>
                 <p>
@@ -95,6 +110,23 @@
                 </p>
             </div>
         </div>
+
+        <div class="mb-2">
+            <img 
+                class="bg-dark rounded-circle me-3" 
+                style="width: 75px; height: 75px; float: left;" 
+                src="{% static 'assets/staff/jakesavitt.png' %}" 
+                />
+
+            <div>
+                <b>Jake Savitt</b>
+                <p>
+                    <span class="text-primary">Treasurer</span><br>
+                    Computer Engineering BS
+                </p>
+            </div>
+        </div>
+
     </div>
 
     {% comment %} <div class="row mb-3">

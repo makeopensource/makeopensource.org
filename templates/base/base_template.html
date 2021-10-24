@@ -5,7 +5,7 @@
     
 	{% load static %}
 
-	<link rel="icon" type="image" href="{% static 'assets/favicon.ico' %}"/>
+	<link rel="icon" type="image" href="{% static 'assets/icons/favicon.ico' %}"/>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,20 +23,19 @@
 	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/">
-      			<img src="{% static 'assets/icon.png' %}" alt="" width="30" height="30">
+      			<img src="{% static 'assets/icons/icon.png' %}" alt="" width="30" height="30">
     		</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<a class="nav-link" href="{% url 'join:index' %}"><span style="color: red">Join</span></a>
-					<a class="nav-link" href="/discord">Discord</a>
+				<ul class="navbar-nav ms-auto">	
 					<a class="nav-link float-" href="{% url 'announcements:index' %}">Announcements</a>
 					<a class="nav-link" href="{% url 'projects:index' %}">Projects</a>
-					{% comment %} <a class="nav-link" href="{% url 'idealab:index' %}">IdeaLab</a> {% endcomment %}
-					<a class="nav-link" href="/about">About</a>
-				</ul>
+					<a class="nav-link" href="/github">GitHub</a>
+                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/discord"><span style="color: red">Discord</span></a>
+                </ul>
 			</div>
 		</div>
 	</nav>
