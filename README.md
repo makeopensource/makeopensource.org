@@ -7,7 +7,8 @@ framework with great asynchronous programming support.
 
 * `server.py` – the main server component
 * `routes.py` – definition of routes (aka urls) for requests
-* `views/` – directory holding code apps (seperated by .py files)
+* `views/` – holds request/response code (for apps, seperated by file)
+* `db/` – stores db access functions (for apps, seperated by file)
 * `.gitignore` – all files ignored by git
 
 
