@@ -1,0 +1,2 @@
+uvicorn=0.16.0
+starlette=0.17.1
