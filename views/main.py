@@ -1,5 +1,9 @@
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, RedirectResponse
+from starlette.templating import Jinja2Templates
 
 
-async def homepage(request):
-    return JSONResponse({'hello': 'world'})
+templates = Jinja2Templates(directory='templates')
+
+async def home(request):
+    return templates.TemplateResponse('index.html', {'request': request})
+

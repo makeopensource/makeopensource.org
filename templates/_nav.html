@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	{% block title %}<title>MakeOpenSource</title>{% endblock %}
+    
+	<link rel="icon" type="image" href=""/>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+
+  <body>
+    <!-- navigation -->
+
+    <nav>
+        <!-- MOS Logo -->
+        <a href="/"><img src=""></a>
+
+        <!-- page urls (design mobile-first) -->
+        <a href="/announcements">Announcements</a>
+        <a href="/projects">Projects</a>
+        <a href="https://github.com/makeopensource">GitHub</a>
+        <a href="/about">About</a>
+        <a href="https://discord.com/invite/xbBPqdqr6n">Discord</a>
+	</nav>
+
+	<div>{% block content %}{% endblock %}</div>
+
+  </body>
+</html>
