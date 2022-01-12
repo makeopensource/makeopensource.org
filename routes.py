@@ -1,11 +1,15 @@
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
-from views.main import *
+from views import main
 
 
 routes=[
-    Route('/', home),
+    Route('/', main.home),
+    Route('/about', main.about),
+    Route('/projects', main.projects),
+    Route('/announcements', main.announcements),
 
     Mount('/static', StaticFiles(directory='static'), name='static'),
 ]
+
