@@ -16,7 +16,7 @@ framework with great asynchronous programming support.
 
 ## run server
 *before you continue, [install docker](https://docs.docker.com/get-docker/) for
-your local machine
+your local machine*
 ```
 $ docker-compose up --build
 ```
