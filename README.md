@@ -18,5 +18,16 @@ framework with great asynchronous programming support.
 *before you continue, [install docker](https://docs.docker.com/get-docker/) for
 your local machine
 ```
-docker-compose up --build
+$ docker-compose up --build
+```
+
+## test environment
+1. install requirements
+```
+$ pip install -r requirements.txt
+```
+
+2. run server
+```
+uvicorn server:app
 ```
