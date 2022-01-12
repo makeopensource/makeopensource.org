@@ -1,0 +1,21 @@
+{% extends "_nav.html" %}
+  
+{% block content %}
+<div>
+    <h1>About</h1>
+
+    <h2>Software</h2>
+    {% for program in software %}
+        <a href="{{ program.url }}">
+            <img src="{{ program.icon }}">
+        </a>
+    {% endfor %}
+
+    <h2>Our Team</h2>
+
+    {% for admin in admins %}
+        <p>{{ admin.position }} – {{ admin.name }}</p>
+        
+    {% endfor %}
+</div>
+{% endblock %} 
