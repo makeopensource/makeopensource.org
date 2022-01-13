@@ -1,0 +1,15 @@
+{% extends "_nav.html" %}
+
+{% block content %}
+<h1>Projects</h1>
+{% for project in projects %}
+    <div>
+        <a href="{{ project.url }}">{{ project.name }}</a>
+        <p>description: {{ project.description }}</p>
+        <p>contributors: {{ project.contributors }}</p>
+        <p>stars: {{ project.stars }}</p>
+        <p>forks: {{ project.forks }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
