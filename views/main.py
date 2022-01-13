@@ -2,12 +2,18 @@ import json
 
 from starlette.responses import JSONResponse, RedirectResponse
 from starlette.templating import Jinja2Templates
+from starlette.staticfiles import StaticFiles
 import requests
+from starlette.responses import FileResponse
 
 from db.projects import get_project, create_project
 
 
 templates = Jinja2Templates(directory='templates')
+
+#flag variable for cache announcements
+global updateAnnCache
+updateAnnCache = False
 
 
 async def home(request):
@@ -59,4 +65,12 @@ async def projects(request):
 
 async def announcements(request):
     if request.method == 'GET':
-        pass
+        if not updateAnnCache:
+            response = FileResponse('static/annCache.html')
+            return response
+        else:
+            sendAnn = []
+            f = open("annCache.html", 'w')
+            f.write(templates.TemplateResponse('announcements', {'request': request, 'announcements': sendAnn}))
+            response = FileResponse('static/annCache.html')
+            return response
