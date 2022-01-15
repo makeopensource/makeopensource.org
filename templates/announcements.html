@@ -1,0 +1,12 @@
+{% extends "_nav.html" %}
+
+{% block content %}
+<h1>announcements</h1>
+{% for announcement in announcements %}
+  <div>
+  <p>{{ announcement }}</p>
+  <br>
+  </div>
+{% endfor %}
+
+{% endblock %}
