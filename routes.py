@@ -7,9 +7,10 @@ from views import main
 routes=[
     Route('/', main.home),
     Route('/about', main.about),
-    Route('/projects', main.projects),
-    Route('/announcements', main.announcements, methods=["GET", "POST"]),
-
+    Route('/ledger', main.ledger),
+    # Route('/projects', main.projects),
+    # Route('/announcements', main.announcements, methods=["GET", "POST"]),
+    
     Mount('/static', StaticFiles(directory='static'), name='static'),
 ]
 
