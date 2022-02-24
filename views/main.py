@@ -1,5 +1,6 @@
 import yaml
 
+from starlette.responses import JSONResponse, RedirectResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
 
 
@@ -29,10 +30,31 @@ async def about(request):
     return templates.TemplateResponse('about.html', elements)
 
 
+async def announcements(request):
+    if request.method == 'POST':
+        body = await request.json()
+        template = templates.get_template('announcements.html')
+        rendered = template.render(announcements=body['messages'])
+        with open('announcements.html', 'w') as file:
+            file.write(rendered)
+        return JSONResponse({'status': 200})
+    else:
+        with open('announcements.html', 'r') as file:
+            return HTMLResponse(file.read())
+
+
 async def ledger(request):
     elements = {
         'request': request, 
         'payments': get_yaml('ledger.yml', 'payments')
     }
     return templates.TemplateResponse('ledger.html', elements)
+
+
+async def github(request):
+    return RedirectResponse(url='https://github.com/makeopensource')
+
+
+async def discord(request):
+    return RedirectResponse(url='https://discord.com/invite/xbBPqdqr6n')
 

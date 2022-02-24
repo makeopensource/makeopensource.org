@@ -1,0 +1,21 @@
+{% extends "_nav.html" %}
+
+{% block content %}
+<h1>Announcements</h1>
+{% for ann in announcements %}
+    <p>
+        {{ ann['createdAt'] }}
+        {{ ann['author'] }}
+        {{ ann['message'] }}
+        <br>
+        {% for reaction in ann['reactions'] %}
+            {% if reaction['type'] == 'emoji' %}
+                {{ reaction['content'] }} {{ reaction['count'] }}
+            {% else %}
+                <img src="{{ reaction['content'] }}" width="15" height="15"> {{ reaction['count'] }}
+            {% endif %}
+        {% endfor %}
+    </p>
+{% endfor %}
+
+{% endblock %}
