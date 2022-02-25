@@ -4,9 +4,9 @@
 <h1>Announcements</h1>
 {% for ann in announcements %}
     <p>
-        {{ ann['createdAt'] }}
-        {{ ann['author'] }}
-        {{ ann['message'] }}
+        {{ ann['createdAt'] | to_date }}<br>
+        <b>{{ ann['author'] }}</b><br>
+        {{ ann['message'] | discordify }}
         <br>
         {% for reaction in ann['reactions'] %}
             {% if reaction['type'] == 'emoji' %}

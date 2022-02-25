@@ -1,11 +1,14 @@
 import yaml
+from .jinja_filters import to_date, discordify
 
 from starlette.responses import JSONResponse, RedirectResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
 
 
 templates = Jinja2Templates(directory='templates')
-
+filters = {'to_date': to_date, 'discordify': discordify}
+templates.env.filters.update(filters)
+templates.env.autoescape = False
 
 def get_yaml(yaml_file, attr):
     yaml_path = 'static/yaml'
@@ -32,6 +35,12 @@ async def about(request):
 
 async def announcements(request):
     if request.method == 'POST':
+
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # !!! make sure that the host and port !!!
+        # !!! are verified before accepting    !!!
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
         body = await request.json()
         template = templates.get_template('announcements.html')
         rendered = template.render(announcements=body['messages'])
