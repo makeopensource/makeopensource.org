@@ -3,3 +3,4 @@ starlette==0.17.1
 Jinja2==3.0.3
 requests==2.27.1
 pymongo==4.0.1
+pyyaml
