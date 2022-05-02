@@ -1,22 +1,16 @@
 import yaml
 from .jinja_filters import to_date, discordify
 
+from starlette.requests import Request
 from starlette.responses import JSONResponse, RedirectResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
+from starlette.websockets import WebSocket
 
 
 templates = Jinja2Templates(directory='templates')
 filters = {'to_date': to_date, 'discordify': discordify}
 templates.env.filters.update(filters)
 templates.env.autoescape = False
-
-def get_yaml(yaml_file, attr):
-    yaml_path = 'static/yaml'
-    try:
-        with open(f'{yaml_path}/{yaml_file}', 'r') as file:
-            return yaml.safe_load(file)[attr]
-    except FileNotFoundError:
-        return {}
 
 
 async def home(request):
@@ -27,20 +21,23 @@ async def about(request):
     print(get_yaml('about.yml', 'software'))
     elements = {
         'request': request, 
-        'software': get_yaml('about.yml', 'software'), 
-        'admins': get_yaml('about.yml', 'admins')
+        'software': await get_yaml('about.yml', 'software'), 
+        'admins': await get_yaml('about.yml', 'admins')
     }
     return templates.TemplateResponse('about.html', elements)
 
 
+async def get_yaml(yaml_file, attr):
+    yaml_path = 'static/yaml'
+    try:
+        with open(f'{yaml_path}/{yaml_file}', 'r') as file:
+            return yaml.safe_load(file)[attr]
+    except FileNotFoundError:
+        return {}
+
+
 async def announcements(request):
     if request.method == 'POST':
-
-        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        # !!! make sure that the host and port !!!
-        # !!! are verified before accepting    !!!
-        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         body = await request.json()
         template = templates.get_template('announcements.html')
         rendered = template.render(announcements=body['messages'])
@@ -52,12 +49,9 @@ async def announcements(request):
             return HTMLResponse(file.read())
 
 
-async def ledger(request):
-    elements = {
-        'request': request, 
-        'payments': get_yaml('ledger.yml', 'payments')
-    }
-    return templates.TemplateResponse('ledger.html', elements)
+async def calendar(request):
+    return templates.TemplateResponse('calendar.html', {'request': request})
+
 
 
 async def github(request):

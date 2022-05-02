@@ -7,9 +7,9 @@ from views import main
 routes=[
     Route('/', main.home),
     Route('/about', main.about),
-    Route('/ledger', main.ledger),
     Route('/github', main.github),
     Route('/discord', main.discord),
+    Route('/calendar', main.calendar),
     # Route('/projects', main.projects),
     Route('/announcements', main.announcements, methods=["GET", "POST"]),
     
