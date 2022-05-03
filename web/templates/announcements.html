@@ -1,0 +1,27 @@
+{% extends "_nav.html" %}
+
+{% block content %}
+<h1>Announcements</h1>
+<h3>Stats</h3>
+
+{% for ann in announcements %}
+    <p>
+        {{ ann['createdAt']}}<br>
+        <b>{{ ann['author'] }}</b><br>
+        {{ ann['message'] | discordify }}
+        <br>
+        {% for url in ann['attachments'] %}
+            <img style="max-width: 300px;" src="{{ url }}">
+        {% endfor %}
+        <br>
+        {% for reaction in ann['reactions'] %}
+            {% if reaction['type'] == 'emoji' %}
+                {{ reaction['content'] }} {{ reaction['count'] }}
+            {% else %}
+                <img src="{{ reaction['content'] }}" width="15" height="15"> {{ reaction['count'] }}
+            {% endif %}
+        {% endfor %}<br>
+    </p>
+{% endfor %}
+
+{% endblock %}

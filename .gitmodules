@@ -1,0 +1,3 @@
+[submodule "annbot"]
+	path = annbot
+	url = git@github.com:makeopensource/annbot.git

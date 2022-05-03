@@ -1,0 +1,15 @@
+{% extends "_nav.html" %}
+  
+{% block content %}
+<div>
+    <h1>Public Ledger</h1>
+    {% for payment in payments %}
+        <p>
+            <b>from:</b> {{ payment.from }}<br>
+            <b>to:</b> {{ payment.to }}<br>
+            <b>description:</b> {{ payment.description }}<br>
+            <b>amount:</b> {{ payment.amount }}
+        </p>
+    {% endfor %}
+</div>
+{% endblock %} 
