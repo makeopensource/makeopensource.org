@@ -1,12 +1,23 @@
 version: '3.3'
 services:
   mongo:
-    image: mongo:4.2.5
+    image: 'mongo'
+
   web:
     build: web
     environment:
       WAIT_HOSTS: mongo:27017
     ports:
-      - '8080:8000'
+      - '8010:8000'
+    networks:
+      - internal
   annbot:
     build: annbot
+    networks:
+      - internal
+
+
+networks:
+  internal:
+    name: internal
+
