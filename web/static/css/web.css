@@ -1,0 +1,47 @@
+:root {
+    --black: #000;
+    --grey: #efefef;
+    --lightgrey: #f7f7f7;
+    --white: #fff;
+    --orange: #f7941d;
+    --blue: #002fed;
+    --purple: #5500cc;
+
+    --light: 300;
+    --text: 400;
+    --medium: 500;
+    --heavy: 600;
+    --xheavy: 700;
+
+    --p1: 15px;
+}
+
+.program-list {
+}
+
+.program-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: none;
+}
+
+.program-link img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.admin {
+    display: flex;
+    align-items: center;
+}
+
+.admin img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.admin b {
+    font-weight: 500;
+    color: var(--blue);
+}

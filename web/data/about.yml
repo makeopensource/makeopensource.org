@@ -1,0 +1,26 @@
+software:
+- name:     GitHub
+  url:      https://github.com/makeopensource
+  icon:     assets/github-logo.png
+
+- name:     Matrix
+  url:      https://makeopensource.org/matrix
+  icon:     assets/matrix-logo.png
+
+- name:     Discord
+  url:      https://makeopensource.org/discord
+  icon:     assets/discord-logo.png
+
+- name:     Google Calendar
+  url:      https://calendar.google.com/calendar/u/0/r?cid=c_lkachc26hdpg3rt9kptbk1go6s@group.calendar.google.com
+  icon:     assets/google-calendar-logo.png
+
+
+admins:      
+- name:     Emil Kovacev
+  position: President
+  image:    assets/emil-kovacev.jpeg
+
+- name:     Nick Brown
+  position: Vice President
+  image:    assets/nick-brown.jpeg

@@ -5,17 +5,25 @@
     <h1>About</h1>
 
     <h2>Software</h2>
+    <div class="program-list">
     {% for program in software %}
-        <a href="{{ program.url }}">
+        <a class="program-link" href="{{ program.url }}">
             <img src="{{ program.icon }}">
-        </a>
+            <p>{{ program.name }}</p>
+        </a> 
     {% endfor %}
+    </div>
 
     <h2>Our Team</h2>
 
     {% for admin in admins %}
-        <p>{{ admin.position }} – {{ admin.name }}</p>
-        
+        <div class="admin">
+            <img src="{{ admin.image }}">
+            <p>
+                <b>{{ admin.position }}</b><br>
+                {{ admin.name }}
+            </p>
+        </div>
     {% endfor %}
 </div>
 {% endblock %} 

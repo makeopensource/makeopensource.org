@@ -1,5 +1,6 @@
 import re
 
+
 def to_date(value: str):
     date_format = re.compile(r'^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})' \
                              r'.{3}:(?P<hours>\d{2}):(?P<minutes>\d{2})' \

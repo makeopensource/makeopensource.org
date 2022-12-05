@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,200;0,400;0,500;0,600;0,800;1,200;1,400;1,500;1,600;1,800&display=swap');
+
 :root {
     --black: #000;
     --grey: #efefef;
@@ -17,7 +19,7 @@
 }
 
 body {
-    font-family: Helvetica;
+    font-family: 'Fira Sans';
     font-size: 16px;
     color: var(--black);
     font-weight: var(--text);
@@ -35,7 +37,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1,h2,h3 {
-    font-weight: var(--heavy);
+    font-weight: var(--medium);
     margin-block-start: 40px;
 }
 
@@ -140,16 +142,21 @@ hr {
     max-width: 600px;
 }
 
+.icon {
+    width: 30px;
+}
+
 /* navbar */
 
 .nav {
-    position: fixed;
-    top: 0;
     width: 100%;
     background-color: var(--lightgrey);
     display: flex;
     flex-wrap: wrap;
     padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
 }
 
 .navlink {
@@ -157,25 +164,22 @@ hr {
     font-weight: var(--text);
     color: var(--black) !important;
     text-decoration: none;
-    padding: 0 calc(2 * var(--p1));
+    margin: 5px 20px;
     white-space: nowrap;
-    line-height: 50px;
+    border: none;
 }
 
 .navlink:hover {
-    background-color: var(--grey);
+    color: var(--darkgrey) !important;
+    border-bottom: 2px solid black;
 }
 
 .spacer {
     width: 100%;
 }
 
-.breadcrumb {
-    
-}
-
-.instructions {
-    padding: calc(2 * var(--p1));
+.page {
+    padding: 0 var(--p1);
     max-width: 800px;
     margin: 0 auto;
 }
