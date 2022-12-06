@@ -16,6 +16,10 @@
     --p1: 15px;
 }
 
+b {
+    font-weight: 500;
+}
+
 .program-list {
 }
 
@@ -41,7 +45,26 @@
     margin-right: 10px;
 }
 
-.admin b {
-    font-weight: 500;
+.discord-announcement {
+    padding: 20px;
+    background-color: var(--lightgrey);
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.discord-attachement {
+    height: 300px;
+    margin: 10px 0;
+}
+
+.discord-reaction {
+    background-color: var(--grey);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px 10px 0;
+}
+
+.channel {
+    font-weight: var(--heavy);
     color: var(--blue);
 }

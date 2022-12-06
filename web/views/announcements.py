@@ -1,29 +1,32 @@
-from .jinja_filters import to_date, discordify
+from .jinja_filters import discordify
 from starlette.responses import JSONResponse, HTMLResponse
 from starlette.templating import Jinja2Templates
 
 
 templates = Jinja2Templates(directory='templates')
 filters = {'discordify': discordify}
-templates.env.filters.update(filters)
+templates.env.globals.update(discordify=discordify)
 templates.env.autoescape = False
+
+
+cached_file = 'templates/.announcements.html'
 
 
 async def announcements(request):
     if request.method == 'POST':
         body = await request.json()
-        print(f"body: {body}")
         template = templates.get_template('announcements.html')
-        rendered = template.render(announcements=body['messages'])
-        with open('templates/.announcements.html', 'w') as file:
+        print(body['channels'])
+        rendered = template.render(announcements=body['messages'], channels=body['channels'])
+        with open(cached_file, 'w') as file:
             file.write(rendered)
         return JSONResponse({'status': 200})
     else:
         try:
-            with open('templates/.announcements.html', 'r') as file:
+            with open(cached_file, 'r') as file:
                 return HTMLResponse(file.read())
         except FileNotFoundError:
-            params = {'request': request, 'announcements': []}
+            params = {'request': request, 'announcements': [], "channels": []}
             return templates.TemplateResponse('announcements.html', params)
 
 

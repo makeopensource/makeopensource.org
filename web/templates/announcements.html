@@ -5,23 +5,25 @@
 <h3>Stats</h3>
 
 {% for ann in announcements %}
-    <p>
+    <div class="discord-announcement">
         {{ ann['createdAt']}}<br>
-        <b>{{ ann['author'] }}</b><br>
-        {{ ann['message'] | discordify }}
+        <b>{{ ann['author'] }}</b><br><br>
+        {{ discordify(ann['message'], channels) }}
         <br>
         {% for url in ann['attachments'] %}
-            <img style="max-width: 300px;" src="{{ url }}">
+            <img class="discord-attachement" src="{{ url }}">
         {% endfor %}
         <br>
         {% for reaction in ann['reactions'] %}
+            <span class="discord-reaction">
             {% if reaction['type'] == 'emoji' %}
                 {{ reaction['content'] }} {{ reaction['count'] }}
             {% else %}
                 <img src="{{ reaction['content'] }}" width="15" height="15"> {{ reaction['count'] }}
             {% endif %}
-        {% endfor %}<br>
-    </p>
+            </span>
+        {% endfor %}
+    </div>
 {% endfor %}
 
 {% endblock %}
