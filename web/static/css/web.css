@@ -67,4 +67,5 @@ b {
 .channel {
     font-weight: var(--heavy);
     color: var(--blue);
+    display: inline;
 }
