@@ -96,6 +96,10 @@ b {
     margin: 0 10px 10px 0;
 }
 
+.emoji {
+    width: 25px;
+}
+
 .channel {
     font-weight: var(--heavy);
     color: var(--blue);
