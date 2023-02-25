@@ -4,7 +4,7 @@
 build: web annbot
 
 # Start the server
-up: all
+up: build
 	docker compose up -d --build
 
 # Shut the server down
