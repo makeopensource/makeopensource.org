@@ -17,9 +17,14 @@ restart: all
 
 web: web/Dockerfile
 
-annbot:
+annbot: annbot/Dockerfile
+
+annbot/Dockerfile: annbot/
+	git submodule init annbot
 	git submodule update --recursive
-	git submodule sync --recursive
+
+clean:
+	git submodule deinit --all -f
 
 .PHONY:
-	build up down restart web annbot
+	build up down restart web annbot clean
