@@ -1,5 +1,8 @@
-*/.env
-*/.DS_Store
+**/.DS_Store
 db.*
-*/__pycache__
-.python-version
+**/__pycache__
+/mos/*
+**/venv
+
+**/.*
+!.gitignore
