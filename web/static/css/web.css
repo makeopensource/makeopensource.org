@@ -20,29 +20,61 @@ b {
     font-weight: 500;
 }
 
+.hero {
+    font-size: 30px;
+    line-height: 3rem;
+    padding: 20px 40px;
+    background-color: orange;
+    font-family: "fira mono";
+}
+
 .program-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.program {
+    align-items: center;
 }
 
 .program-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
     color: none;
 }
 
 .program-link img {
-    height: 20px;
-    margin-right: 10px;
+    height: 30px;
+    margin-right: 20px;
+}
+
+.program-link p {
+    margin-right: 20px;
+}
+
+.admin-list {
 }
 
 .admin {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .admin img {
-    height: 50px;
+    height: 80px;
     margin-right: 10px;
+    border-radius: 100px;
+}
+
+.admin p {
+    margin-block-end: 0;
+}
+
+.admin-name {
+    font-weight: var(--xheavy);
+}
+
+.admin-position {
+    color: var(--blue);
 }
 
 .discord-announcement {

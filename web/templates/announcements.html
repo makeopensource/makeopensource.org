@@ -2,7 +2,13 @@
 
 {% block content %}
 <h1>Announcements</h1>
-{% for ann in announcements %}
+
+<p>
+    A list of all announcements made in our course. Follow our <a href="/about">social media</a>
+    to keep up to date!
+</p>
+
+{% for ann in announcements %} 
     <div class="discord-announcement">
         {{ ann['createdAt']}}<br>
         <b>{{ ann['author'] }}</b><br><br>

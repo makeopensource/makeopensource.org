@@ -24,3 +24,11 @@ admins:
 - name:     Nick Brown
   position: Vice President
   image:    assets/nick-brown.jpeg
+
+- name:     Dylan Zinsley
+  position: Event Coordinator
+  image:    assets/icon-rounded-80px.png
+
+- name:     Muhammad Niaz
+  position: Treasurer
+  image:    assets/icon-rounded-80px.png
