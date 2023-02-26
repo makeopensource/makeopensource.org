@@ -7,23 +7,27 @@
     <h2>Software</h2>
     <div class="program-list">
     {% for program in software %}
-        <a class="program-link" href="{{ program.url }}">
-            <img src="{{ program.icon }}">
-            <p>{{ program.name }}</p>
-        </a> 
+        <div class="program">
+            <a class="program-link" href="{{ program.url }}">
+                <!-- <img src="{{ program.icon }}">-->
+                <p>{{ program.name }}</p>
+            </a> 
+        </div>
     {% endfor %}
     </div>
 
     <h2>Our Team</h2>
 
+    <div class="admin-list">
     {% for admin in admins %}
         <div class="admin">
             <img src="{{ admin.image }}">
-            <p>
-                <b>{{ admin.position }}</b><br>
-                {{ admin.name }}
-            </p>
+            <div>
+                <p class="admin-name">{{ admin.name }}</p>
+                <p class="admin-position">{{ admin.position }}</p> 
+            </div>
         </div>
     {% endfor %}
+    </div>
 </div>
 {% endblock %} 

@@ -4,7 +4,8 @@
 	{% block title %}<title>MakeOpenSource</title>{% endblock %}
     
 	<link rel="icon" type="image" href=""/>
-    <link rel="stylesheet" type="text/css" href="static/css/makeopensource-style-guide.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/makeopensource/WebStyles/dist/css/webstyles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/makeopensource-style-guide.css" /> -->
     <link rel="stylesheet" type="text/css" href="static/css/web.css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,12 +21,12 @@
         <a href="/announcements" class="navlink">Announcements</a>
         <a href="/about" class="navlink">About</a>
         <a href="/github" class="navlink">GitHub</a>
-        <a href="/matrix" class="navlink">Matrix</a>
         <a href="/calendar" class="navlink">Calendar</a>
 	</div>
     <div class="page">
 	    <div>{% block content %}{% endblock %}</div>
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/makeopensource/WebStyles/dist/js/webstyles.js"></script>
 
   </body>
 </html>
