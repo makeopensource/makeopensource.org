@@ -17,7 +17,10 @@ restart: all
 
 web: web/Dockerfile
 
-annbot: annbot/Dockerfile
+annbot: annbot/Dockerfile annbot/.env
+
+annbot/.env: config.py
+	python3 config.py
 
 annbot/Dockerfile: annbot/
 	git submodule init annbot

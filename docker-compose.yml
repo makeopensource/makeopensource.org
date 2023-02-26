@@ -1,13 +1,19 @@
-version: '3.3'
+version: '3.9'
 services:
   mongo:
     image: mongo:4.2.5
+    deploy:
+      restart_policy:
+        condition: any
   web:
     build: web
     environment:
       WAIT_HOSTS: mongo:27017
     ports:
       - '8080:8000'
+    deploy:
+      restart_policy:
+        condition: any
   annbot:
     build: annbot
     environment:
@@ -15,3 +21,7 @@ services:
       - PORT=8000
     env_file:
       - annbot/.env
+    deploy:
+      restart_policy:
+        condition: any
+
