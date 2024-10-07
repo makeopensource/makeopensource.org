@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
 	{% block title %}<title>MakeOpenSource</title>{% endblock %}
-    
-	<link rel="icon" type="image" href=""/>
+
+	<link rel="icon" type="image/png" href="static/assets/icon-rounded-80px.png"/>
     <link rel="stylesheet" type="text/css" href="static/css/makeopensource-style-guide.css" />
     <link rel="stylesheet" type="text/css" href="static/css/web.css" />
     <meta charset="utf-8">
@@ -15,13 +15,18 @@
     <!-- navigation -->
 
     <div class="nav">
-        <!-- <a href="/" class="navlink"><img class="icon" src="/assets/icon-rounded-80px.png"></a> -->
-        <a href="/" class="navlink">Home</a>
-        <a href="/announcements" class="navlink">Announcements</a>
-        <a href="/about" class="navlink">About</a>
-        <a href="/github" class="navlink">GitHub</a>
-        <a href="/matrix" class="navlink">Matrix</a>
-        <a href="/calendar" class="navlink">Calendar</a>
+        <a class="nav-item" href="/">
+            <div class="nav-logo">
+                <img alt="logo" class="icon" src="/assets/icon-rounded-80px.png">
+                Home
+            </div>
+        </a>
+{#        <a href="/announcements" class="nav-item">Announcements</a>#}
+        <a href="/about" class="nav-item">About</a>
+        <a href="/github" class="nav-item">GitHub</a>
+        <a href="/matrix" class="nav-item">Matrix</a>
+        <a href="/discord" class="nav-item">Discord</a>
+{#        <a href="/calendar" class="nav-item">Calendar</a>#}
 	</div>
     <div class="page">
 	    <div>{% block content %}{% endblock %}</div>

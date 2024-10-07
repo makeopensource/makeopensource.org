@@ -163,19 +163,35 @@ hr {
     min-height: 50px;
 }
 
-.navlink {
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo:hover span {
+    display: block;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item {
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-size: 16px;
     font-weight: var(--text);
     color: var(--black) !important;
     text-decoration: none;
-    margin: 10px 20px;
+    margin: 10px 10px 7px;
     white-space: nowrap;
-    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 7px 10px 7px;
 }
 
-.navlink:hover {
+.nav-item:hover {
     color: var(--darkgrey) !important;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--orange);
 }
 
 .spacer {
