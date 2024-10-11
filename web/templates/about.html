@@ -14,8 +14,8 @@
     {% endfor %}
     </div>
 
+    <div class="admins">
     <h2>Our Team</h2>
-
     {% for admin in admins %}
         <div class="admin">
             <img src="{{ admin.image }}">
@@ -25,5 +25,6 @@
             </p>
         </div>
     {% endfor %}
+    </div>
 </div>
 {% endblock %} 

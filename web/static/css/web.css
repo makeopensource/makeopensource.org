@@ -35,13 +35,20 @@ b {
     margin-right: 10px;
 }
 
+.admins {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
 .admin {
     display: flex;
     align-items: center;
 }
 
 .admin img {
-    height: 50px;
+    height: 80px;
     margin-right: 10px;
 }
 

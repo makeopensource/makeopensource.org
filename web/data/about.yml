@@ -16,11 +16,23 @@ software:
   icon:     assets/google-calendar-logo.png
 
 
-admins:      
-- name:     Emil Kovacev
+admins:
+- name:     Alan Soto
   position: President
-  image:    assets/emil-kovacev.jpeg
+  image:    assets/alan-soto.jpg
 
-- name:     Nick Brown
+- name:     Alex McHugh
   position: Vice President
-  image:    assets/nick-brown.jpeg
+  image:    assets/alex-mchugh.jpg
+
+- name:     Jesse Hartloff
+  position: Advisor
+  image:    assets/jesse-hartloff.jpg
+
+- name:     Nicholas Myers
+  position: Advisor
+  image:    assets/nicholas-myers.jpg
+
+- name: Jacky Lin
+  position: Advisor
+  image: assets/jacky-lin.jpg
