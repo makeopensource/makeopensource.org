@@ -81,10 +81,6 @@ a {
     color: var(--blue);
 }
 
-a:visited {
-    color: var(--purple);
-}
-
 code {
     background-color: var(--lightgrey);
     border-radius: 2px;
@@ -181,7 +177,7 @@ hr {
     justify-content: center;
     font-size: 16px;
     font-weight: var(--text);
-    color: var(--black) !important;
+    color: var(--darkgrey);
     text-decoration: none;
     margin: 10px 10px 7px;
     white-space: nowrap;
@@ -190,7 +186,7 @@ hr {
 }
 
 .nav-item:hover {
-    color: var(--darkgrey) !important;
+    color: var(--darkgrey);
     border-bottom: 2px solid var(--orange);
 }
 
