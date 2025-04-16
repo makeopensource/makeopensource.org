@@ -5,6 +5,17 @@ import {theme} from './theme'
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
+    app: {
+        head: {
+            link: [
+                {
+                    rel: "icon",
+                    type: "image/png",
+                    href: "/logo.png",
+                }
+            ]
+        }
+    },
 
     modules: [
         '@nuxt/eslint',
@@ -18,7 +29,7 @@ export default defineNuxtConfig({
             theme: {
                 preset: theme,
                 options: {
-                    darkModeSelector: 'dark-theme',
+                    darkModeSelector: '.dark-theme',
                 }
             }
         }

@@ -4,17 +4,37 @@ import {definePreset} from '@primeuix/themes'
 export const theme = definePreset(Aura, {
     semantic: {
         primary: {
-            50: '{orange.50}',
-            100: '{orange.100}',
-            200: '{orange.200}',
-            300: '{orange.300}',
-            400: '{orange.400}',
+            50: '#fbca8e',
+            100: '#fabf77',
+            200: '#f9b461',
+            300: '#f9a94a',
+            400: '#f89f34',
             500: '#f7941d',
-            600: '{orange.600}',
-            700: '{orange.700}',
-            800: '{orange.800}',
-            900: '{orange.900}',
-            950: '{orange.950}'
+            600: '#de851a',
+            700: '#c67617',
+            800: '#ad6814',
+            900: '#945911',
+            950: '#7c4a0f'
+        },
+        colorScheme: {
+            light: {
+                primary: {
+                    color: '{primary.500}',
+                    hoverColor: '{primary.400}',
+                    activeColor: '{primary.300}',
+                    inverseColor: '{zinc.900}',
+                    contrastColor: '{zinc.900}'
+                },
+            },
+            dark: {
+                primary: {
+                    color: '{primary.500}',
+                    hoverColor: '{primary.400}',
+                    activeColor: '{primary.300}',
+                    inverseColor: '{zinc.900}',
+                    contrastColor: '{zinc.900}'
+                },
+            }
         }
     }
 })
