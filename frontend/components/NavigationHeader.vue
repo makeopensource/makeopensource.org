@@ -1,15 +1,16 @@
 <script setup lang="ts">
-
+const isOnProjectsPage = computed(() => {
+  return useRoute().path.startsWith('/projects')
+})
 </script>
 
 <template>
   <nav>
-
     <NuxtLink class="nav-link" active-class="active" to="/">
       <img class="logo" src="/logo.png" alt="Logo"/>
       MakeOpenSource
     </NuxtLink>
-    <NuxtLink class="nav-link" active-class="active" to="/projects">Projects</NuxtLink>
+    <NuxtLink class="nav-link" :class="{'active': isOnProjectsPage}" to="/projects">Projects</NuxtLink>
     <NuxtLink class="nav-link" active-class="active" to="/about">About</NuxtLink>
     <div class="separator"/>
     <ThemeSelectorButton/>
