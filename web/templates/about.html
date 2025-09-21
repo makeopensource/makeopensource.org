@@ -7,7 +7,7 @@
     <h2>Software</h2>
     <div class="program-list">
     {% for program in software %}
-        <a class="program-link" target="_blank" href="{{ program.url }}">
+        <a class="program-link" target="_blank" rel="noopener noreferrer" href="{{ program.url }}">
             <img src="{{ program.icon }}">
             <p>{{ program.name }}</p>
         </a> 
