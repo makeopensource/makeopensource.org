@@ -1,6 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'layouts/main_layout.html' %}
 
-{% block title %}MakeOpenSource{% endblock %}
+{% block title %}{{ project_name }} | MakeOpenSource{% endblock %}
+{% block description %}Project description{% endblock %}
 
 {% block content %}
     This is a project: {{ project_name }}
