@@ -2,10 +2,9 @@
 
 {% block base_content %}
     <header>
-        Header
+        {% include 'partial/header.html' %}
     </header>
     <main>
-        Main
         {% block content %}{% endblock %}
     </main>
     <footer>

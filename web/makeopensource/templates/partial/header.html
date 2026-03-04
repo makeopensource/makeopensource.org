@@ -1,0 +1,12 @@
+<div class="header">
+    <a class="nav-link{{ ' active' if request.path == '/' }}" href="/">
+        <img src="{{ url_for('static', filename='images/logo-128.png') }}" alt="MakeOpenSource logo" height="48px">
+        <span class="text">MakeOpenSource</span>
+    </a>
+
+    <a class="nav-link{{ ' active' if request.path.startswith('/projects') }}" href="/projects/">
+        <span class="text">
+            Projects
+        </span>
+    </a>
+</div>
