@@ -1,5 +1,18 @@
 services:
   web:
     build: web
+    volumes:
+      - ./web/makeopensource:/app/web/makeopensource
+    expose:
+      - "5877"
+  proxy:
+    build: proxy
+    restart: unless-stopped
     ports:
-      - '127.0.0.1:8080:8000'
+      - "127.0.0.1:5878:80"
+    volumes:
+      - ./web/makeopensource/static:/static
+      - ./data/proxy-logs:/var/log/nginx
+    depends_on:
+      web:
+        condition: service_started
