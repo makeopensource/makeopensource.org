@@ -78,4 +78,26 @@ body {
             text-decoration-thickness: 0.2rem;
         }
     }
+
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-left: auto;
+
+        &:hover {
+            background-color: var(--raised);
+        }
+
+        .theme-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
 }
