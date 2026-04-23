@@ -4,18 +4,18 @@
 {% block description %}Browse our open-source projects{% endblock %}
 
 {% block content %}
+    <div class="limited-width">
+        <h1>Browse our projects</h1>
 
-    <h1>Browse our projects</h1>
-
-    <div class="project-cards">
-        {% for project in projects %}
-            <a class="plain" href="{{ url_for('projects.project', project_slug=project.metadata.slug) }}">
-                <div class="project-card">
-                    <h2>{{ project.metadata.name }}</h2>
-                    <p>{{ project.metadata.description }}</p>
-                </div>
-            </a>
-        {% endfor %}
+        <div class="project-cards">
+            {% for project in projects %}
+                <a class="plain" href="{{ url_for('projects.project', project_slug=project.metadata.slug) }}">
+                    <div class="project-card">
+                        <h2>{{ project.metadata.name }}</h2>
+                        <p>{{ project.metadata.description }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
-
 {% endblock %}

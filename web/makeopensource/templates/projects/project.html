@@ -4,15 +4,19 @@
 {% block description %}{{ project.metadata.description }}{% endblock %}
 
 {% block content %}
-    <div class="project-header">
+    <div class="limited-width">
+        <div class="project-header">
 
-        <h1>{{ project.metadata.name }}</h1>
-        <p>{{ project.metadata.description }}</p>
-        {% if project.metadata.github_url %}
-            <p><a href="{{ project.metadata.github_url }}" target="_blank">View on GitHub</a></p>
-        {% endif %}
+            <h1>{{ project.metadata.name }}</h1>
+            <p>{{ project.metadata.description }}</p>
+            {% if project.metadata.github_url %}
+                <p><a href="{{ project.metadata.github_url }}" target="_blank">View on GitHub</a></p>
+            {% endif %}
+        </div>
+
+        {{ project.body_html | safe }}
+
     </div>
 
-    {{ project.body_html | safe }}
 
 {% endblock %}
