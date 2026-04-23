@@ -1,3 +1,6 @@
 black
 flask
 gunicorn
+pydantic
+python-frontmatter
+markdown

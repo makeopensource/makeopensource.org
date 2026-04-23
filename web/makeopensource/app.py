@@ -2,10 +2,14 @@ from flask import Flask
 
 from general.general import general_bp
 from projects.projects import projects_bp
+from web.makeopensource.projects.loader import ProjectLoader
 
 
 def create_app():
     app = Flask(__name__)
+
+    app.project_loader = ProjectLoader()
+    app.project_loader.load_projects()
 
     app.register_blueprint(general_bp, url_prefix="/")
     app.register_blueprint(projects_bp, url_prefix="/projects")
