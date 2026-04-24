@@ -13,7 +13,9 @@ def index():
 
 @projects_bp.get("/<project_slug>")
 def project(project_slug: str):
-    proj: ParsedProject | None = current_app.project_loader.get_project(project_slug)
+    proj: ParsedProject | None = current_app.project_loader.get_project(
+        project_slug.lower()
+    )
     if not proj:
         abort(404, description=f"Project not found: {project_slug}")
     return render_template("projects/project.html", project=proj)
