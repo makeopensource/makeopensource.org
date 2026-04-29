@@ -120,6 +120,14 @@ a {
     }
 }
 
+.centered-info-box {
+    max-width: 600px;
+    background-color: var(--raised);
+    border-radius: 4px;
+    padding: 12px 24px;
+    margin: 8px auto 0;
+}
+
 .project-cards {
     display: flex;
     gap: 24px;

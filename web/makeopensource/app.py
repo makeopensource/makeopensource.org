@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
+from werkzeug.exceptions import HTTPException, InternalServerError
 
 from general.general import general_bp
 from projects.projects import projects_bp
@@ -13,6 +14,12 @@ def create_app():
 
     app.register_blueprint(general_bp, url_prefix="/")
     app.register_blueprint(projects_bp, url_prefix="/projects")
+
+    @app.errorhandler(Exception)
+    def handle_exception(e):
+        if not isinstance(e, HTTPException):
+            e = InternalServerError()
+        return render_template("general/error.html", error=e), e.code
 
     return app
 

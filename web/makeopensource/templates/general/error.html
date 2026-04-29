@@ -1,0 +1,13 @@
+{% extends 'layouts/main_layout.html' %}
+
+{% block title %}Error | MakeOpenSource{% endblock %}
+
+{% block content %}
+    <div class="limited-width">
+        <div class="centered-info-box">
+            <h1>{{ error.code }} {{ error.name }}</h1>
+            <p>{{ error.description }}</p>
+            <p><a href="/">Home</a></p>
+        </div>
+    </div>
+{% endblock %}

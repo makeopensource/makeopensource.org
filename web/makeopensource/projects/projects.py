@@ -17,5 +17,5 @@ def project(project_slug: str):
         project_slug.lower()
     )
     if not proj:
-        abort(404, description=f"Project not found: {project_slug}")
+        abort(404, description=f'Project "{project_slug}" doesn\'t exist.')
     return render_template("projects/project.html", project=proj)
