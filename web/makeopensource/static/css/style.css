@@ -146,6 +146,10 @@ a {
     h2, p {
         margin: 0;
     }
+
+    &:hover {
+        background-color: var(--raised2);
+    }
 }
 
 .project-header {
