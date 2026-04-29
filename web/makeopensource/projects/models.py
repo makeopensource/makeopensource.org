@@ -8,6 +8,7 @@ class ProjectMetadata(BaseModel):
     slug: str
     description: str | None = None
     github_url: str | None = None
+    archived: bool | None = False
 
     @field_validator("slug")
     @classmethod
@@ -23,3 +24,8 @@ class ProjectMetadata(BaseModel):
 class ParsedProject(BaseModel):
     metadata: ProjectMetadata
     body_html: str
+
+
+class GroupedProjects(BaseModel):
+    current: list[ParsedProject] = []
+    past: list[ParsedProject] = []

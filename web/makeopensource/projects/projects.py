@@ -1,13 +1,13 @@
 from flask import Blueprint, render_template, current_app, abort
 
-from web.makeopensource.projects.models import ParsedProject
+from web.makeopensource.projects.models import ParsedProject, GroupedProjects
 
 projects_bp = Blueprint("projects", __name__)
 
 
 @projects_bp.get("/")
 def index():
-    projects: list[ParsedProject] = current_app.project_loader.get_projects()
+    projects: GroupedProjects = current_app.project_loader.get_projects()
     return render_template("projects/projects_index.html", projects=projects)
 
 

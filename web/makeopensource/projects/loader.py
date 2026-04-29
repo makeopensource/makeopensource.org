@@ -1,4 +1,3 @@
-import os.path
 from pathlib import Path
 
 import frontmatter
@@ -7,18 +6,22 @@ from frontmatter import Post
 from pydantic import ValidationError
 
 from web.makeopensource.general.paths import get_content_dir
-from web.makeopensource.projects.models import ParsedProject, ProjectMetadata
+from web.makeopensource.projects.models import (
+    ParsedProject,
+    ProjectMetadata,
+    GroupedProjects,
+)
 
 
 class ProjectLoader:
     def __init__(self):
         self._projects_directory = get_content_dir() / "projects"
         self._projects: dict[str, ParsedProject] = {}  # slug -> project
-        self._projects_sorted: list[ParsedProject] = []
+        self._grouped_projects: GroupedProjects = GroupedProjects()
 
-    def get_projects(self) -> list[ParsedProject]:
-        # Returns a list of all projects for displaying on the projects page
-        return self._projects_sorted
+    def get_projects(self) -> GroupedProjects:
+        # Returns projects grouped by section (current/past) for displaying on the projects page
+        return self._grouped_projects
 
     def get_project(self, slug: str) -> ParsedProject | None:
         # Returns the details for a particular project, or None if not found
@@ -40,15 +43,24 @@ class ProjectLoader:
         return ParsedProject(metadata=metadata, body_html=html_content)
 
     def load_projects(self):
-        # Reads Markdown files and stores their parsed content in self._projects
+        # Reads Markdown files and stores their parsed content in self._projects and self._grouped_projects
         for markdown_file_path in self._projects_directory.glob("*.md"):
             try:
                 project = self.parse_project_from_markdown(markdown_file_path)
+
+                if project.metadata.slug in self._projects:
+                    raise ValueError(f'Duplicate slug "{project.metadata.slug}" found')
+
                 self._projects[project.metadata.slug] = project
-                self._projects_sorted.append(project)
+
+                if project.metadata.archived:
+                    self._grouped_projects.past.append(project)
+                else:
+                    self._grouped_projects.current.append(project)
             except Exception as e:
                 print(f"Error loading project from {markdown_file_path}: {e}")
 
-        self._projects_sorted.sort(
-            key=lambda p: p.metadata.name.lower()
-        )  # Sort projects alphabetically by name
+        # Sort projects alphabetically by name within each group
+        groups = [self._grouped_projects.past, self._grouped_projects.current]
+        for group in groups:
+            group.sort(key=lambda p: p.metadata.name.lower())

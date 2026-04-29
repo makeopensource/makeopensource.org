@@ -128,20 +128,25 @@ a {
     margin: 8px auto 0;
 }
 
+.projects-section {
+    margin: 48px 0;
+}
+
 .project-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 24px;
-    flex-wrap: wrap;
 }
 
 .project-card {
     display: flex;
-    gap: 12px;
-    padding: 12px;
-    border-radius: 4px;
     flex-direction: column;
-    max-width: 20rem;
+    border-radius: 4px;
+    padding: 16px;
+    gap: 12px;
     background-color: var(--raised);
+    height: 100%;
+    box-sizing: border-box;
 
     h2, p {
         margin: 0;
