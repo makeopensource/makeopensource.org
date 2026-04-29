@@ -8,7 +8,7 @@
 
 }
 
-body.dark-theme {
+html.dark-theme {
     --foreground: #eeeeee;
     --background: #0a0a0a;
     --raised: #1a1a1a;

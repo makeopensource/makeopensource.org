@@ -33,12 +33,12 @@ function getEffectiveTheme(preference) {
 }
 
 /**
- * Apply the theme to the body
+ * Apply the theme to the HTML element
  * @param {string} theme - "light" or "dark"
  */
 function applyTheme(theme) {
     const isDark = theme === "dark";
-    document.body.classList.toggle(THEME_CLASS, isDark);
+    document.documentElement.classList.toggle(THEME_CLASS, isDark);
 }
 
 /**
