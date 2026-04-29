@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 from werkzeug.exceptions import HTTPException, InternalServerError
 
 from general.general import general_bp
@@ -17,6 +17,10 @@ def create_app():
 
     @app.errorhandler(Exception)
     def handle_exception(e):
+        if current_app.debug:
+            # Don't use our custom error pages in debug mode
+            raise e
+
         if not isinstance(e, HTTPException):
             e = InternalServerError()
         return render_template("general/error.html", error=e), e.code
