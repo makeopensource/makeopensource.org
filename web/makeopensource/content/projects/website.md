@@ -1,7 +1,9 @@
 ---
 name: MakeOpenSource.org
 slug: website
-description: You're looking at it right now! The official website for MakeOpenSource.org, the University at Buffalo's open-source software development student club. Built with Flask and Docker, it serves as a hub for club information and project showcases.
+description: You're looking at it right now! The official website for MakeOpenSource.org, the University at Buffalo's 
+  open-source software development student club. Built with Flask and Docker, it serves as a hub for club information 
+  and project showcases.
 github_url: https://github.com/makeopensource/makeopensource.org
 ---
 
