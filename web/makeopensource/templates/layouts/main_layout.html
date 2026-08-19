@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block base_content %}
+    <header>
+        {% include 'partial/header.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
+{% endblock %}

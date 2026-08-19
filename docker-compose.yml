@@ -1,12 +1,18 @@
-version: '3.3'
 services:
-  mongo:
-    image: mongo:4.2.5
   web:
     build: web
-    environment:
-      WAIT_HOSTS: mongo:27017
+    volumes:
+      - ./web/makeopensource:/app/web/makeopensource
+    expose:
+      - "5877"
+  proxy:
+    build: proxy
+    restart: unless-stopped
     ports:
-      - '8080:8000'
-  annbot:
-    build: annbot
+      - "127.0.0.1:5878:80"
+    volumes:
+      - ./web/makeopensource/static:/static
+      - ./data/proxy-logs:/var/log/nginx
+    depends_on:
+      web:
+        condition: service_started

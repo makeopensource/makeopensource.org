@@ -1,0 +1,37 @@
+{% extends 'layouts/main_layout.html' %}
+
+{% block title %}Projects | MakeOpenSource{% endblock %}
+{% block description %}Browse our open-source projects{% endblock %}
+
+{% block content %}
+    <div class="limited-width">
+        <h1>Browse our projects</h1>
+
+        {% macro project_cards_list(projects) %}
+            <div class="project-cards">
+                {% for project in projects %}
+                    <a class="plain" href="{{ url_for('projects.project', project_slug=project.metadata.slug) }}">
+                        <div class="project-card">
+                            <h2>{{ project.metadata.name }}</h2>
+                            <p>{{ project.metadata.description }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endmacro %}
+
+        {% if projects.current %}
+            <div class="projects-section">
+                <h2>Current projects</h2>
+                {{ project_cards_list(projects.current) }}
+            </div>
+        {% endif %}
+
+        {% if projects.past %}
+            <div class="projects-section">
+                <h2>Past projects</h2>
+                {{ project_cards_list(projects.past) }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

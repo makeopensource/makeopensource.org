@@ -1,0 +1,33 @@
+<div class="header limited-width">
+    <a class="nav-link{{ ' active' if request.path == '/' }}" href="/">
+        <img src="{{ url_for('static', filename='images/logo-128.png') }}" alt="MakeOpenSource logo" height="48px">
+        <span class="text">MakeOpenSource</span>
+    </a>
+
+    <a class="nav-link{{ ' active' if request.path.startswith('/projects') }}" href="/projects/">
+        <span class="text">
+            Projects
+        </span>
+    </a>
+
+    <a class="nav-link" href="https://github.com/makeopensource" target="_blank">
+        <span class="text">
+            GitHub
+        </span>
+    </a>
+
+    <a class="nav-link" href="/discord/" target="_blank">
+        <span class="text">
+            Discord
+        </span>
+    </a>
+
+    <button id="theme-toggle-btn" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <img src="{{ url_for('static', filename='images/theme-light.svg') }}" alt="Light theme" class="theme-icon"
+             data-theme="light" style="display: none;">
+        <img src="{{ url_for('static', filename='images/theme-dark.svg') }}" alt="Dark theme" class="theme-icon"
+             data-theme="dark" style="display: none;">
+        <img src="{{ url_for('static', filename='images/theme-auto.svg') }}" alt="Auto theme" class="theme-icon"
+             data-theme="auto" style="display: none;">
+    </button>
+</div>

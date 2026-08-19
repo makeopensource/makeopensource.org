@@ -1,6 +1,6 @@
-uvicorn==0.16.0
-starlette==0.25.0
-Jinja2==3.0.3
-requests==2.27.1
-pymongo==4.0.1
-pyyaml
+black
+flask
+gunicorn
+markdown
+pydantic
+python-frontmatter
