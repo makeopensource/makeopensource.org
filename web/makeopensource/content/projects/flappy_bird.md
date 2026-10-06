@@ -1,8 +1,10 @@
 ---
-name: Flappy Bird VR
+name: MakeOpenSoar
 slug: flappy-bird-vr
-description: Our first foray into Unreal virtual reality game development. You're the bird! Flap your wings to 
-  avoid the pipes as they come flying towards you!
+description: "Flappy Bird in virtual reality"
+github_url: https://github.com/makeopensource/MakeOpenSoar
 ---
+
+This is our first foray into Unreal virtual reality game development!
 
 More details coming soon!

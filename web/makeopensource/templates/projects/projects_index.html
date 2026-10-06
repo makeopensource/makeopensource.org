@@ -10,7 +10,8 @@
         {% macro project_cards_list(projects) %}
             <div class="project-cards">
                 {% for project in projects %}
-                    <a class="plain" href="{{ url_for('projects.project', project_slug=project.metadata.slug) }}">
+                    <a class="plain" href="{{ url_for('projects.project', project_slug=project.metadata.slug) }}"
+                       draggable="false">
                         <div class="project-card">
                             <h2>{{ project.metadata.name }}</h2>
                             <p>{{ project.metadata.description }}</p>

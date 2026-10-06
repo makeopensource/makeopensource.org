@@ -1,7 +1,7 @@
 ---
 name: Authenticator
 slug: authenticator
-description: Open-source multi-factor authentication app
+description: An open-source multi-factor authentication app
 github_url: https://github.com/makeopensource/Authenticator
 archived: True
 ---
